@@ -1,0 +1,75 @@
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
+const bcrypt = require('bcrypt');
+
+
+const userSchema = new Schema({
+    firstName: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    lastName: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    username: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: 'That username has been taken'
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: 'That email is already associated with another user',
+        // There is no, perfect regex for recognizing email addresses: included regex has 99.99% success rate. May want to consider alternatives for irl production.
+        match: [
+            /(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/,
+            'Must match an email address'
+        ]
+    },
+    password: {
+        type: String,
+        required: true,
+        minlength: 5
+    },
+    followers: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    following: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    events: [Event.schema]
+});
+
+
+
+// set up pre-save middleware to create password
+userSchema.pre('save', async function(next) {
+    if (this.isNew || this.isModified('password')) {
+      const saltRounds = 10;
+      this.password = await bcrypt.hash(this.password, saltRounds);
+    }
+  
+    next();
+});
+
+
+
+// compare the incoming password with the hashed password
+userSchema.methods.isCorrectPassword = async function(password) {
+    return await bcrypt.compare(password, this.password);
+};
+  
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
