@@ -123,7 +123,11 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in to add a guest')
         }
+    },
+    Event: {
+        
     }
+
 }
 
 

@@ -26,7 +26,12 @@ const eventSchema = new Schema(
             type: String,
             required: false, 
         },
-        guests: [userSchema]
+        guests: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "User"
+            }
+        ]
     }, 
     {
         toJSON: {

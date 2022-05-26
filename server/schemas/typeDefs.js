@@ -16,7 +16,7 @@ const  typeDefs = gql `
         _id: ID
         name: String
         description: String
-        fee: Number
+        fee: Int
         date: String
         location: String
         guests: [User]
@@ -35,10 +35,10 @@ const  typeDefs = gql `
         event(name: String): Event
     }
 
-    Type Mutation {
+    type Mutation {
         login(email: String!, password: String!): Auth
         addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): Auth
-        addEvent(name: String!, description: String!, date: String!, location: String!, guests: [User]): Event
+        addEvent(name: String!, description: String!, date: String!, location: String!, fee: Int): Event
         addFollower (followerId: ID!): User
         addGuest(guestId: ID!): Event 
     }

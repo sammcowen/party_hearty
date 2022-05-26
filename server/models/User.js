@@ -48,7 +48,12 @@ const userSchema = new Schema(
                 ref: 'User'
             }
         ],
-        events: [eventSchema]
+        events: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Event'
+            }
+        ]
     },
     {
         toJSON: {
