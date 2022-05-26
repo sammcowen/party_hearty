@@ -29,8 +29,10 @@ type Auth {
 
 type Query {
     me: User
-    getEvent (_id: ID!): Event
-    getEvents (username: String): [Event]
+    users: [User]
+    user: User
+    events: [Event]
+    event(name: String): Event
 }
 
 Type Mutation {
