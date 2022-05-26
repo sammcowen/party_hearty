@@ -109,6 +109,19 @@ const resolvers = {
             }
             
             throw new AuthenticationError('You need to be logged in to add a follower!');
+        },
+        addGuest: async (parent, { eventId, guestId }, context) => {
+            if (context.user) {
+                const updatedEvent = await Event.findOneAndUpdate(
+                    { _id: eventId },
+                    { $addToSet: { guests: guestId }},
+                    { new: true }
+                ).populate('guests');
+
+                return updatedEvent;
+            }
+
+            throw new AuthenticationError('You need to be logged in to add a guest')
         }
     }
 }
