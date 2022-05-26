@@ -34,7 +34,7 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('followers')
                 .populate('following')
-                .populate('evemnts')
+                .populate('events')
             ;
         },
         // get all events 
