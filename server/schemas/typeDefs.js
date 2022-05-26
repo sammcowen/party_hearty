@@ -16,7 +16,7 @@ type Event {
     _id: ID
     name: String
     description: String
-    fee: Boolean
+    fee: Number
     date: String
     location: String
     guests: [User]

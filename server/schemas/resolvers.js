@@ -1,5 +1,103 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Event } = require('../models');
 const { signToken } = require('../utils/auth');
 
-// module.exports = resolvers;
+const resolvers = {
+    Query: {
+        // query me to verify user is logged in 
+        me: async (parent, args, context) => {
+            // if context.user exists, return the userData
+            if(context.user) {
+                const userData = await User.findOne({ _id: context.user._id })
+                    .select('-__v -password')
+                    .populate('followers')
+                    .populate('following')
+                    .populate('events')
+                ;
+                return userData;
+            }
+            // if no context.user exists, we know that the user is not authenticated
+            throw new AuthenticationError('Not logged in');
+        },
+        // get all users 
+        users: async () => {
+            return User.find()
+                .select('-__v -password')
+                .populate('followers')
+                .populate('following')
+                .populate('events')
+            ;
+        },
+        // get user by username
+        user: async (parent, { username }) => {
+            return User.findOne({ username })
+                .select('-__v -password')
+                .populate('followers')
+                .populate('following')
+                .populate('evemnts')
+            ;
+        },
+        // get all events 
+        events: async () => {
+            return Event.find()
+                .select('-__v')
+                .populate('guests')
+            ;
+        },
+        // get event by name
+        event: async (parent, { name }) => {
+            return Event.findOne({ name })
+                .select('-__v')
+                .populate('guests')
+            ;
+        }
+    },
+    Mutation: {
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
+      
+            return { token, user };
+        },
+        addEvent: async (parent, args, context) => {
+            if (context.user) {
+                // create new event object
+                const event = await Event.create({ ...args, username: context.user.username });
+                // push event obj to User collection by id
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { events: event._id }},
+                    { new: true }
+                )
+                return event;
+            }
+
+            throw new AuthenticationError('You must be logged in to post an event');
+        },
+        addFollower: async (parent, { followerId }, context) => {
+            if (context.user) {
+                // update logged in users following array:
+                const updatedUser = await User.findOneAndUpdate(
+                    {_id: context.user._id},
+                    { $addToSet: { following: followerId }},
+                    { new: true }
+                )
+                .populate('following').populate('followers')
+                
+                // push logged in user id to 
+                await User.findByIdAndUpdate(
+                    { _id: followerId},
+                    { $addToSet: { followers: context.user._id }},
+                    { new: true }
+                )
+
+                return updatedUser;
+            }
+            
+            throw new AuthenticationError('You need to be logged in to add a follower!');
+        }
+    }
+}
+
+
+module.exports = resolvers;
