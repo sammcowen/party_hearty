@@ -10,9 +10,9 @@ import React from 'react';
 
 
 
-import Home from './pages/Home';
+// import Home from './pages/Home';
 // import Login from './pages/Login';
-// import EventPage from './pages/EventPage';
+import EventPage from './pages/EventPage';
 // import Rsvp from './pages/Rsvp';
 // import Signup from './pages/Signup';
 
@@ -64,7 +64,7 @@ function App() {
     //   </Router>
     // </ApolloProvider>
     <div className='App'>
-    <Home/>
+    <EventPage/>
     </div>
   );
 }
