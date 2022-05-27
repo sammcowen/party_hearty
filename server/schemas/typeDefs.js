@@ -41,10 +41,14 @@ const  typeDefs = gql `
         addEvent(name: String!, description: String!, date: String!, location: String!, fee: Int): Event
         addFollower (followerId: ID!): User
         addGuest(guestId: ID!, eventId: ID!): Event 
+<<<<<<< HEAD
         removeGuest(guestId: ID!): Event
         removeEvent(eventId: ID!): User
+=======
+        removeGuest(guestId: ID!, eventId: ID!): Event
+        removeEvent(eventId: ID!): Event
+>>>>>>> a79817e7e31fda64f38ab14c32d4cf79d494ad75
         removeFollowers(folowersId: ID!): User
-        stopFollowing(folowingId: ID!) : User
     }
 `;
 
