@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const userSchema = require('./User');
+const RsvpSchema = require('./Rsvp');
 
 const eventSchema = new Schema(
     {
@@ -30,6 +31,12 @@ const eventSchema = new Schema(
             {
                 type: Schema.Types.ObjectId,
                 ref: "User"
+            }
+        ],
+        guestsRsvp: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "RSVP"
             }
         ]
     }, 

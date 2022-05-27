@@ -20,10 +20,12 @@ const  typeDefs = gql `
         date: String
         location: String
         guests: [User]
+        guestsRsvp: [Rsvp]
     }
 
     type Rsvp {
         attending: Boolean
+        attendent: User
     }
 
     type Auth {

@@ -7,9 +7,13 @@ const rsvpSchema = new Schema(
         attending: {
             type: Boolean,
             default: false
-        }
-        // reference the User field id 
-        // reference the event the user is attending
+        },
+        attendent: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "User"
+            }
+        ]
     }
 )
 
