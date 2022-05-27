@@ -20,6 +20,7 @@ const EventPage = () => {
                     <br/>
                     <EventDiscription /> 
                 </div>
+                
             </div>
         </>
     );
