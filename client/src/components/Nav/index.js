@@ -4,17 +4,19 @@
 // if modal for login/signUp logOut need button
 // add event
 import React from 'react';
-import url from '../../pages/Login';
-import url1 from '../../pages/Signup';
+// import url from '../../pages/Login';
+// import url1 from '../../pages/Signup';
 
 function Nav () {
     return (
             <div>
                 <nav>
                     
-                        <a href={url}>Log In</a>
+                    <button>Log In</button>
+                    <button>Sign Up</button>
+                        {/* <a href={url}>Log In</a>
                         <a href={url1}>Sign Up</a>
-                        
+                         */}
                    
                 </nav>
             </div>
