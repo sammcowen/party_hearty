@@ -11,6 +11,7 @@ import React from 'react';
 
 
 // import Home from './pages/Home';
+// import './index.css';
 // import Login from './pages/Login';
 import EventPage from './pages/EventPage';
 // import Rsvp from './pages/Rsvp';
@@ -38,6 +39,7 @@ import EventPage from './pages/EventPage';
 
 function App() {
   return (
+    <EventPage />
     // <ApolloProvider client={client}>
     //   <Router>
     //     <div className="">
@@ -63,9 +65,9 @@ function App() {
     //     </div>
     //   </Router>
     // </ApolloProvider>
-    <div className='App'>
-    <EventPage/>
-    </div>
+    // <div className='App'>
+    // <Home/>
+    // </div>
   );
 }
 
