@@ -22,6 +22,10 @@ const  typeDefs = gql `
         guests: [User]
     }
 
+    type Rsvp {
+        attending: Boolean
+    }
+
     type Auth {
         token: ID!
         user: User
