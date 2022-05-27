@@ -13,6 +13,7 @@ import './index.css';
 
 // import Home from './pages/Home';
 // import './index.css';
+// import Eventform from './pages/Eventform';
 // import Login from './pages/Login';
 import EventPage from './pages/EventPage';
 // import Rsvp from './pages/Rsvp';
