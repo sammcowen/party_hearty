@@ -152,17 +152,27 @@ const resolvers = {
         // removes follower from user 
         removeFollowers: async (parent, { followersId }, context) => {
             if (context.user) {
-                const updatedUser = await User.findOneAndUpdate(
-                       { _id: context.user._id },
-                       { $unset: { following: followersId } },
-                       { new: true }
-                   )
-                await User.findOneAndUpdate(
-                    { _id: followersId},
-                    { $unset: { followers: context.user._id } },
-                    { new: true }
+                try {  
+                   const updateFollow = await User.findOneAndUpdate(
+                        { _id: followersId},
+                        { $pull: { followers: context.user._id } },
+                        { new: true }
                     )
-                    return updatedUser
+                    if (updateFollow) {
+                        try {
+                            const updatedUser = await User.findOneAndUpdate(
+                                { _id: context.user._id },
+                                { $unset: { following: followersId } },
+                                { new: true }
+                            ) 
+                            return updatedUser;
+                        } catch (e) {
+                            console.log('error removing from your folloing array:  ',e)
+                        }
+                    }
+                } catch (e) {
+                    console.log('error removing from followersId`s followers array:  ', e)
+                }
             }
             throw new AuthenticationError('You need to be logged in to remove a Follower');
         }
