@@ -6,7 +6,7 @@ import React from 'react';
 function Jumbotron () {
     return (
         <div className='header'>
-            Party Hearty
+           <h1> Party Hearty</h1>
         </div>
     );
 };

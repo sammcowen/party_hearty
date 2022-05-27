@@ -8,7 +8,9 @@ const Home = () => {
     return (
         <div>
             <Jumbotron></Jumbotron>
-            <h1>Hello World!!!</h1>
+            <div className='text'>
+            <h2>Plan your next event with us ...</h2>
+            </div>
         </div>
     );
 };
