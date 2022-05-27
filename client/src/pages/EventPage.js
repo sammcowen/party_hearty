@@ -11,12 +11,16 @@ const EventPage = () => {
         <>
             <EventName />
             <br/>
-            <ParticipantList />
-            <br/>
-            <Map/>
-            <br/>
-            <EventDiscription /> 
-            <br/>
+            <div className='container'>
+                <div className='left'>
+                    <ParticipantList />
+                </div>
+                <div className='right column'>
+                    <Map/>
+                    <br/>
+                    <EventDiscription /> 
+                </div>
+            </div>
         </>
     );
 };

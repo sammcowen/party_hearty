@@ -28,3 +28,16 @@ body {
     justify-content:center;
     
 }
+
+.container{
+    display: flex;
+}
+
+.left {
+    justify-content: left;
+
+}
+
+.right {
+    justify-content: right;
+}
