@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 // import {  Router, Routes, Route } from 'react-router-dom';
 // import {
 // //   ApolloClient,
@@ -10,11 +11,11 @@ import React from 'react';
 
 
 
-import Home from './pages/Home';
-import './index.css';
+// import Home from './pages/Home';
+// import './index.css';
 // import Eventform from './pages/Eventform';
 // import Login from './pages/Login';
-// import EventPage from './pages/EventPage';
+import EventPage from './pages/EventPage';
 // import Rsvp from './pages/Rsvp';
 // import Signup from './pages/Signup';
 
@@ -40,6 +41,7 @@ import './index.css';
 
 function App() {
   return (
+    <EventPage />
     // <ApolloProvider client={client}>
     //   <Router>
     //     <div className="">
@@ -65,9 +67,9 @@ function App() {
     //     </div>
     //   </Router>
     // </ApolloProvider>
-    <div className='App'>
-    <Home/>
-    </div>
+    // <div className='App'>
+    // <Home/>
+    // </div>
   );
 }
 

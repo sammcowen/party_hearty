@@ -1,14 +1,14 @@
 /* this is where any custom css will go */
 
 body {
-    background-color: black;
+    /* background-color: black; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color:whitesmoke;
+    /* color:whitesmoke; */
 
 }
 
 .header {
-    background-image: url('../public/assets/image.png');
+    background-image: url('./assets/image.png');
     background-repeat: no-repeat;
     display:flex;
     flex-direction: row;
@@ -18,7 +18,7 @@ body {
 
 }
 .header h1 {
-    color:black;
+    /* color:black; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
@@ -27,4 +27,17 @@ body {
     flex-direction:row;
     justify-content:center;
     
+}
+
+.container{
+    display: flex;
+}
+
+.left {
+    justify-content: left;
+
+}
+
+.right {
+    justify-content: right;
 }
