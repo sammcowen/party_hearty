@@ -7,6 +7,9 @@ const Eventform = () => {
         <div>
             <Jumbotron></Jumbotron>
             <Nav></Nav>
+            <h2>
+                Fill out the form below to create your next Party Hearty Event!
+            </h2>
             <form>
                 <div>
                     <label for="eventName" >Event Name</label>
