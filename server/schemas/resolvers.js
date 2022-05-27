@@ -122,44 +122,40 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in to add a guest')
-        }
-    },
-    Event: {
-        
-    },
-    // removes guest from event
-    removeGuest: async (parent, { eventId, guestId }, context) => {
-        if (context.user) {
-            return await Event.findOneAndUpdate(
-                { _id: eventId },
-                { $pull: { guests: guestId } },
-                { new: true }
-            )
-        }
-        throw new AuthenticationError('You need to be logged in to remove a guest');
-    },
-    // removes event from user
-    removeEvent: async (parent, { eventId }, context) => {
-        if (context.user) {
-            return await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $pull: { events: eventId }},
-                { new: true }
-            )
-        }
-        throw new AuthenticationError('You need to be logged in to remove an Event');
-    },
-    // removes follower from user 
-    removeFollowers: async (parent, { followersId }, context) => {
-        if (context.user) {
-            return await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $pull: { followers: followersId }},
-                { new: true }
-            )
-        }
-        throw new AuthenticationError('You need to be logged in to remove a Follower');
-    },
+        },
+        // removes guest from event
+        removeGuest: async (parent, { eventId, guestId }, context) => {
+            if (context.user) {
+                return await Event.findOneAndUpdate(
+                    { _id: eventId },
+                    { $pull: { guests: guestId } },
+                    { new: true }
+                )
+            }
+            throw new AuthenticationError('You need to be logged in to remove a guest');
+        },
+        // removes event from user
+        removeEvent: async (parent, { eventId }, context) => {
+            if (context.user) {
+                return await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { events: eventId }},
+                    { new: true }
+                )
+            }
+            throw new AuthenticationError('You need to be logged in to remove an Event');
+        },
+        // removes follower from user 
+        removeFollowers: async (parent, { followersId }, context) => {
+            if (context.user) {
+                return await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { followers: followersId }},
+                    { new: true }
+                )
+            }
+            throw new AuthenticationError('You need to be logged in to remove a Follower');
+        },
         // removes following from list of people user follows 
         stopFollowing: async (parent, { followingId }, context) => {
             if (context.user) {
@@ -171,6 +167,8 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in to stop followong');
         },
+
+    },
 }
 
 
