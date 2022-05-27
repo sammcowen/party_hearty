@@ -11,6 +11,8 @@ import React from 'react';
 
 
 import Home from './pages/Home';
+import './index.css';
+
 // import Login from './pages/Login';
 // import EventPage from './pages/EventPage';
 // import Rsvp from './pages/Rsvp';

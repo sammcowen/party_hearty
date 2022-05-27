@@ -1,1 +1,14 @@
 /* this is where any custom css will go */
+
+body {
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:whitesmoke;
+
+}
+
+.header {
+    background-image: url('../public/assets/image.png');
+    background-repeat: no-repeat;
+    
+}
