@@ -14,6 +14,7 @@ const Home = () => {
             <div className='text'>
             <h2>Plan your next event with us ...</h2>
             
+
             </div>
         </div>
     );

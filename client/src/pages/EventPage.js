@@ -33,6 +33,7 @@ const EventPage = () => {
                         <EventDiscription /> 
                     </div>
                 </div>
+                
             </div>
         </>
     );
