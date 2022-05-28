@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+// import Portal from '@mui/base/Portal';
+import TrapFocus from '@mui/base/TrapFocus';
 
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
@@ -49,6 +51,7 @@ function Login(props) {
   };
 
   const [open, setOpen] = React.useState(false);
+//   const [container, setContainer] = React.useState<HTMLElement | null>(null);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -56,51 +59,55 @@ function Login(props) {
   return (
     <>
         <Button onClick={handleOpen}>Log In</Button>
+        {open && (
     <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+       <TrapFocus open>
+       <Box sx={style}>
 
 
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="">
-          <label htmlFor="email">Email address:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        {error ? (
-          <div>
-            <p className="error-text">The provided credentials are incorrect</p>
-          </div>
-        ) : null}
-        <div className="">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-      <div className="">
-          <button onClick={handleClose}>Close</button>
-        </div>
-      </Box>
+<h2>Login</h2>
+<form onSubmit={handleFormSubmit}>
+  <div className="">
+    <label htmlFor="email">Email address:</label>
+    <input
+      placeholder="youremail@test.com"
+      name="email"
+      type="email"
+      id="email"
+      onChange={handleChange}
+    />
+  </div>
+  <div className="">
+    <label htmlFor="pwd">Password:</label>
+    <input
+      placeholder="******"
+      name="password"
+      type="password"
+      id="pwd"
+      onChange={handleChange}
+    />
+  </div>
+  {error ? (
+    <div>
+      <p className="error-text">The provided credentials are incorrect</p>
+    </div>
+  ) : null}
+  <div className="">
+    <button onClick={handleClose} type="submit">Submit</button>
+  </div>
+</form>
+<div className="">
+    <button onClick={handleClose}>Close</button>
+  </div>
+</Box>
+       </TrapFocus>
     </Modal>
+    )}
     </>
   );
 }

@@ -55,7 +55,7 @@ function Signup(props) {
 
   return (
     <>
-    <Button onClick={handleOpen}>Log In</Button>
+    <Button onClick={handleOpen}> Sign Up </Button>
     <Modal
         open={open}
         onClose={handleClose}
@@ -63,7 +63,7 @@ function Signup(props) {
         aria-describedby="modal-modal-description"
     >
     <Box sx={style}>
-    <h2>Signup</h2>
+    <h2>Sign Up</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="">
           <label htmlFor="firstName">First Name:</label>
@@ -116,7 +116,8 @@ function Signup(props) {
           />
         </div>
         <div className="">
-          <button type="submit">Submit</button>
+          <button 
+          onClick={handleClose} type="submit">Submit</button>
         </div>
       </form>
       <div className="">
