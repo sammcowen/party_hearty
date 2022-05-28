@@ -1,21 +1,24 @@
 const { Schema, model } = require('mongoose');
 const userSchema = require('./User');
+const eventSchema = require('./Event');
 
 // this model returns a boolean value to confirm attending an event
 const rsvpSchema = new Schema(
     {
         attending: {
             type: Boolean,
-            default: false
+            default: false,
+            require: true
         },
-        attendent: [
+        attendent: [ userSchema ],
+        eventId: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "User"
+                ref: "Event"
             }
         ]
     }
 )
 
-const Rsvp = model('Rsvp',rsvpSchema)
+const Rsvp = model('Rsvp', rsvpSchema)
 module.exports = Rsvp
