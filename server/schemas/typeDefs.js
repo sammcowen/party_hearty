@@ -21,11 +21,13 @@ const  typeDefs = gql `
         location: String
         guests: [User]
         guestsRsvp: [Rsvp]
+        isPrivate: Boolean
     }
 
     type Rsvp {
         attending: Boolean
-        attendent: User
+        attendentId: User
+        eventId: ID
     }
 
     type Auth {
@@ -50,6 +52,7 @@ const  typeDefs = gql `
         removeGuest(guestId: ID!, eventId: ID!): Event
         removeEvent(eventId: ID!): Event
         removeFollowers(followersId: ID!): User
+        confirmRsvp(eventId: ID!, attending: Boolean!): Event
     }
 `;
 
