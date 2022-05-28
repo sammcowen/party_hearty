@@ -41,8 +41,9 @@ import EventPage from './pages/EventPage';
 
 function App() {
   return (
-    <EventPage />
-    // <ApolloProvider client={client}>
+    <>
+      <EventPage />
+    {/* // <ApolloProvider client={client}>
     //   <Router>
     //     <div className="">
     //       <Header />
@@ -69,7 +70,8 @@ function App() {
     // </ApolloProvider>
     // <div className='App'>
     // <Home/>
-    // </div>
+    // </div> */}
+    </>
   );
 }
 
