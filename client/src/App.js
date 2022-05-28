@@ -15,7 +15,12 @@ import './index.css';
 
 import Home from './pages/Home';
 import EventPage from './pages/EventPage';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
+
+import './index.css';
+// import EventFormPage from './pages/EventFormPage';
 
 // import './index.css';
 // import Eventform from './pages/Eventform';
@@ -55,6 +60,14 @@ function App() {
                  path="/" 
                  element={<Home />} 
                />
+                <Route 
+                path="/login" 
+                element={<Login />} 
+              />
+              <Route 
+                path="/signup" 
+                element={<Signup />} 
+              />
          
                  <Route
                      path= "/event"

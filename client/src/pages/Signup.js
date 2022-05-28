@@ -1,26 +1,8 @@
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-// import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../../utils/mutations';
-
-import Auth from '../../utils/auth';
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
-
+import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -34,7 +16,6 @@ function Signup(props) {
         password: formState.password,
         firstName: formState.firstName,
         lastName: formState.lastName,
-        username: formState.username,
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -49,21 +30,11 @@ function Signup(props) {
     });
   };
 
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   return (
-    <>
-    <Button onClick={handleOpen}> Sign Up </Button>
-    <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-    >
-    <Box sx={style}>
-    <h2>Sign Up</h2>
+    <div className="container my-1">
+      <Link to="/login">← Go to Login</Link>
+
+      <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="">
           <label htmlFor="firstName">First Name:</label>
@@ -117,17 +88,11 @@ function Signup(props) {
         </div>
         <div className="">
           <button 
-          onClick={handleClose} type="submit">Submit</button>
+          type="submit">Submit</button>
         </div>
       </form>
-      <div className="">
-          <button onClick={handleClose}>Close</button>
-        </div>
-  </Box>
-</Modal>
-</>
-
+    </div>
   );
 }
 
-// export default Signup;
+export default Signup;

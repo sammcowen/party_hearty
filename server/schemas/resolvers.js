@@ -116,13 +116,31 @@ const resolvers = {
                     { _id: eventId },
                     { $addToSet: { guests: guestId } },
                     { new: true }
-                ).populate('guests');
+                )
 
                 return updatedEvent;
             }
 
             throw new AuthenticationError('You need to be logged in to add a guest')
         },
+
+        // updates the event details
+        // TODO: test query
+        updateEvent: async (parent, args, eventId, context)=>{
+            if(context.user){
+                 // finds the event through event id and updates arguments
+                 const event = await Event.findByIdAndUpdate(eventId, args, { new:true });
+                 // set the updated event in the events array
+                return await User.findByIdAndUpdate(
+                     { _id: context.user._id },
+                    //  this may need to be changed to { $set: { events: event._id } }
+                     { $set: { events: event } },
+                     { new: true }
+                 )
+            }
+            throw new AuthenticationError('You need to be logged in to update an event');
+        },
+
         // removes guest from event
         removeGuest: async (parent, { eventId, guestId }, context) => {
             if (context.user) {
@@ -177,6 +195,20 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in to remove a Follower');
         }
     },
+    // flip the boolean for rsvpresolver
+    // attending the event by changing the boolean to true
+    // NOTE to front end. search by username and push id to back end
+    confirmRsvp: async (parent, { eventId, attending }, context) => {
+        if(context.user){
+            return await Event.findOneAndUpdate(
+                {_id: eventId},
+                {$push:{guestsRsvp: context.user._id} },
+                {attending: true},
+                {new: true}
+            )
+        }
+        throw new AuthenticationError('You need to be logged');
+    }
 }
 
 

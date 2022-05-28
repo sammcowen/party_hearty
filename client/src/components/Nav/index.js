@@ -4,15 +4,16 @@
 // if modal for login/signUp logOut need button
 // add event
 import React from 'react';
-import Login from '../Login';
-import Signup from '../SignUp';
+import { Link } from 'react-router-dom';
+// import Login from '../Login';
+// import Signup from '../SignUp';
 
 function Nav () {
     return (
       <>
         
         
-              <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Nav</button>
+              <button className=" rando btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Nav</button>
 
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header">
@@ -20,8 +21,18 @@ function Nav () {
               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div className="offcanvas-body">
-              <Login/>
-              <Signup/>
+            <ul className="flex-row">
+              <li className="">
+                <Link to="/signup">
+                  Signup
+                </Link>
+              </li>
+              <li className="">
+                <Link to="/login">
+                  Login
+                </Link>
+              </li>
+            </ul>
             </div>
           </div>
       </>
