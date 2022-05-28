@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const userSchema = require('./User');
-const RsvpSchema = require('./Rsvp');
+const rsvpSchema = require('./Rsvp');
 
 const eventSchema = new Schema(
     {
@@ -27,18 +27,18 @@ const eventSchema = new Schema(
             type: String,
             required: false, 
         },
+        isPrivate: {
+            type: Boolean,
+            default: true,
+            required: true,
+        },
         guests: [
             {
-                type: Schema.Types.ObjectId,
+                
                 ref: "User"
             }
         ],
-        guestsRsvp: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "RSVP"
-            }
-        ]
+        guestsRsvp: [ rsvpSchema ]
     }, 
     {
         toJSON: {
