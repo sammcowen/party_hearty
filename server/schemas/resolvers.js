@@ -123,6 +123,24 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in to add a guest')
         },
+
+        // updates the event details
+        // TODO: test query
+        updateEvent: async (parent, args, eventId, context)=>{
+            if(context.user){
+                 // finds the event through event id and updates arguments
+                 const event = await Event.findByIdAndUpdate(eventId, args, { new:true });
+                 // set the updated event in the events array
+                return await User.findByIdAndUpdate(
+                     { _id: context.user._id },
+                    //  this may need to be changed to { $set: { events: event._id } }
+                     { $set: { events: event } },
+                     { new: true }
+                 )
+            }
+            throw new AuthenticationError('You need to be logged in to update an event');
+        },
+
         // removes guest from event
         removeGuest: async (parent, { eventId, guestId }, context) => {
             if (context.user) {
@@ -189,6 +207,7 @@ const resolvers = {
                 {new: true}
             )
         }
+        throw new AuthenticationError('You need to be logged');
     }
 }
 
