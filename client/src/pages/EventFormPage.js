@@ -1,5 +1,5 @@
 import React from 'react';
-import Jumbotron from '../components/Jumbotron';
+// import Jumbotron from '../components/Jumbotron';
 import Nav from '../components/Nav';
 import Carousel from '../components/Carousel';
 import EventForm from '../components/EventForm';

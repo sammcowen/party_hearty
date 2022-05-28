@@ -11,8 +11,9 @@ import React from 'react';
 
 
 
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import './index.css';
+import EventFormPage from './pages/EventFormPage';
 // import Eventform from './pages/Eventform';
 // import Login from './pages/Login';
 // import EventPage from './pages/EventPage';
@@ -72,7 +73,8 @@ function App() {
     // <Home/>
     // </div> */}
   
-      <Home/>
+      // <Home/>
+      <EventFormPage/>
    
     // </>
   );
