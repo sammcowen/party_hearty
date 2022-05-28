@@ -13,6 +13,33 @@ img {
     width: 200px;
 
 }
+.card {
+    margin-bottom:12px;
+    border-radius: 50%;
+    border:none;
+}
+.card-body {
+    border:none;
+    background-color:black;
+    color:hotpink;
+    font-family:'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    /* width:100px; */
+    
+}
+.rando {
+    background-color:hotpink;
+    color:black;
+}
+.homestep {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 20px;;
+
+    
+
+}
 /* .header {
     background-image: url('./assets/image.png');
     background-repeat: no-repeat;

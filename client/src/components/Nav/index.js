@@ -9,17 +9,9 @@ import React from 'react';
 
 function Nav () {
     return (
-            // <div>
-            //     <nav>
-                    
-            //             <a href={url}>Log In</a>
-            //             <a href={url1}>Sign Up</a>
-                        
-                   
-            //     </nav>
-            // </div>
+           
             <div>
-                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-brands fa-accessible-icon"></i></button>
+                <button class="rando" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Nav</button>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">

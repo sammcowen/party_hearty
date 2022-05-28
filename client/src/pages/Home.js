@@ -17,10 +17,28 @@ const Home = () => {
             <Nav></Nav>
             <div className='text'>
                 <h2>Plan your next event with us ...</h2>
-
+                </div>
+            <div className='homestep'>
+                <div class="card col-9">
+                    <div class="card-body">
+                    <i class="fa-solid fa-list-check"></i>   Plan your next birthday, graduation or any CELEBRATION!
+                    </div>
+                </div>
+                <div class="card col-9">
+                    <div class="card-body">
+                    <i class="fa-solid fa-comment-dollar"></i>  Create a guestlist , add a location, even add a fee for your event!
+                    </div>
+                </div>
+                <div class="card col-9">
+                    <div class="card-body">
+                    <i class="fa-solid fa-rss"></i>  Post your event publicly or privately.. and keep track of your RSVPS !
+                    </div>
+                </div>
+                </div>
 
             </div>
-        </div>
+       
+
     );
 };
 
