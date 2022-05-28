@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+
 // import {  Router, Routes, Route } from 'react-router-dom';
 // import {
 // //   ApolloClient,
@@ -11,11 +11,11 @@ import './index.css';
 
 
 
-// import Home from './pages/Home';
-// import './index.css';
+import Home from './pages/Home';
+import './index.css';
 // import Eventform from './pages/Eventform';
 // import Login from './pages/Login';
-import EventPage from './pages/EventPage';
+// import EventPage from './pages/EventPage';
 // import Rsvp from './pages/Rsvp';
 // import Signup from './pages/Signup';
 
@@ -41,15 +41,15 @@ import EventPage from './pages/EventPage';
 
 function App() {
   return (
-    <>
-      <EventPage />
-    {/* // <ApolloProvider client={client}>
-    //   <Router>
-    //     <div className="">
-    //       <Header />
-    //       <div className="">
-    //         <Routes>
-    //           <Route 
+    // <>
+    //   /* <EventPage /> */
+    // /* // <ApolloProvider client={client}>
+    // //   <Router>
+    // //     <div className="">
+    // //       <Header />
+    // //       <div className="">
+    // //         <Routes>
+    // //           <Route 
     //             path="/" 
     //             element={<Home />} 
     //           />
@@ -71,7 +71,10 @@ function App() {
     // <div className='App'>
     // <Home/>
     // </div> */}
-    </>
+  
+      <Home/>
+   
+    // </>
   );
 }
 

@@ -1,13 +1,19 @@
 /* this is where any custom css will go */
-
+*{
+    font-family: 'Roboto Condensed', sans-serif;
+}
 body {
-    /* background-color: black; */
+    background-color: black !important;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* color:whitesmoke; */
+    color:whitesmoke !important;
 
 }
+img {
+    height:400px;
+    width: 200px;
 
-.header {
+}
+/* .header {
     background-image: url('./assets/image.png');
     background-repeat: no-repeat;
     display:flex;
@@ -18,10 +24,10 @@ body {
 
 }
 .header h1 {
-    /* color:black; */
+    color:black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
-}
+} */
 .text {
     display:flex;
     flex-direction:row;
