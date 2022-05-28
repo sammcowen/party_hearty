@@ -13,7 +13,7 @@ function Nav () {
                 <nav>
                     
                     <button>Log In</button>
-                    <button>Sign Up</button>
+                    <button>Sign</button>
                         {/* <a href={url}>Log In</a>
                         <a href={url1}>Sign Up</a>
                          */}
