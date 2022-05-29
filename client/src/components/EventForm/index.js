@@ -1,71 +1,52 @@
-import React , { useState }from 'react';
-import { useMutation } from '@apollo/client';
-import { ADD_EVENT } from '../../utils/mutations';
+import React, { useState } from 'react';
+
+// import { useMutation } from '@apollo/client';
+// import { ADD_EVENT } from '../../utils/mutations';
 // import Auth from '../../utils/auth';
 
-function EventForm(props) {
-    const[formState, setFormState] = useState({ name:'',description:'', date:'', location:'', fee:''});
-    const [addEvent] = useMutation(ADD_EVENT);
-    const {name, description, date, location, fee} = formState;
-  
+function EventForm({addEvent}) {
 
-    function handleChange(e) {
-       setFormState({...formState, [e.target.name]: e.target.value})
-        
-
-       
-    };
-    const handleSubmit= async (event) => {
+    const [eventInfo, seteventInfo] = useState({ name: '', description: '', date: '', location: '', fee: '' });
+    const handleChange = (event) => {
+        seteventInfo({...eventInfo,[event.target.name]: event.target.value});
+    }
+    const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(setFormState);
-        try {
-            await addEvent({
-                variables:{
-                    name, description,date,location,fee
-                }
-            });
-            setFormState('');
-        }
-        catch(e) {
-            console.error(e);
-        }
-        
-       
-    };
-    
-        return (
-            <div id="eventform"className='formstyle'>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="name" >Event Name :</label>
-                        <input type="text" name="name" defaultValue={name}  onChange={handleChange} placeholder="Samm's Birthday" />
-                    </div>
-                    <div >
-                        <label htmlFor="description" >Event Description :</label>
-                        <textarea name="description" defaultValue={description} onChange={handleChange} rows="2"></textarea>
-                    </div>
-                    <div>
-                        <label htmlFor="date" >Event Date :</label>
-                        <input type="text" name="date" defaultValue={date} onChange={handleChange} placeholder="June 16" />
-                    </div>
-                    
-                    <div>
-                        <label htmlFor="location" >Event Location :</label>
-                        <input type="text" name="location" defaultValue={location} onChange={handleChange} placeholder="My House" />
-                    </div>
-                    <div>
-                        <label htmlFor="fee" >Event Fee :</label>
-                        <input type="text" name="fee" defaultValue={fee} onChange={handleChange} placeholder="June 16" />
-                    </div>
-                    <button type="submit">Submit Your Event</button>
-                </form>
+        addEvent(eventInfo);
+        seteventInfo({name:'',description: '', date: '', location: '', fee: ''})
+    }
+    return (
+        <div className='formstyle'>
+            <form onSubmit={handleSubmit}class="row g-3">
+                <div class="col-md-6">
+                    <label htmlFor="name" class="form-label">Event Name</label>
+                    <input type="text" class="form-control" name="name" value = {eventInfo.name} onChange={handleChange} />
+                </div>
+                <div class="col-md-6">
+                    <label htmlFor="description" class="form-label">Event Description</label>
+                    <textarea name="description" class="form-control" value={eventInfo.description} onChange={handleChange} />
+                </div>
+                <div class="col-12">
+                    <label htmlFor="date" class="form-label">Event Date</label>
+                    <input type="date" class="form-control" name="date" placeholder="June 16" value={eventInfo.date} onChange={handleChange} />
+                </div>
+                <div class="col-12">
+                    <label htmlFor="location" class="form-label">Event Location</label>
+                    <input type="text" class="form-control" name="location" placeholder="Vegas!" value={eventInfo.location}  onChange={handleChange}/>
+                </div>
+                <div class="col-md-6">
+                    <label htmlFor="fee" class="form-label">Event Fee</label>
+                    <input type="text" class="form-control" name="fee" placeholder="100" value={eventInfo.fee} onChange={handleChange} />
+                </div>
 
-            </div>
-    
-        );
+                <div class="col-12">
+                    <button type="submit" class="rando btn">Create Event</button>
+                </div>
+            </form>
+        </div>
+    );
+};
 
 
-    };
 
-
-    export default EventForm;
+export default EventForm;
