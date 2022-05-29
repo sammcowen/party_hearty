@@ -111,7 +111,6 @@ export const QUERY_EVENT = gql `
             }
         }
     }
-    }
 `;
 
 export const QUERY_ME = gql `

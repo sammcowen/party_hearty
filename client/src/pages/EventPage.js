@@ -1,5 +1,6 @@
 import React  from 'react';
 
+
 import { EventName } from '../components/EventName';
 import { EventDiscription } from "../components/EventDiscription";
 import { ParticipantList } from '../components/ParticipantList';
@@ -7,7 +8,11 @@ import { Map } from '../components/Map';
 import { Details } from '../components/Details';
 import Jumbotron from '../components/Jumbotron';
 import Nav from '../components/Nav';
+
+
 import '../index.css';
+
+
 
 
 const EventPage = () => {

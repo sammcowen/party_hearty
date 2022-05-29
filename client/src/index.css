@@ -1,6 +1,11 @@
 /* this is where any custom css will go */
 *{
     font-family: 'Roboto Condensed', sans-serif;
+
+}
+h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    color:#b026ff;
 }
 body {
     background-color: black !important;
@@ -21,17 +26,18 @@ img {
 .card-body {
     border:none;
     background-color:black;
-    color:hotpink;
+    color:#b026ff;
     font-family:'Roboto Condensed', sans-serif;
     font-weight: bold;
     /* width:100px; */
     
 }
 .formstyle {
-    border:5px solid hotpink;
+    border:2px solid #b026ff;
     font-family: 'Roboto Condensed', sans-serif;
     font-size:15px;
-    color:hotpink;
+    background-color:black;
+    color:#b026ff ;
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -39,8 +45,8 @@ img {
     margin-top: 25px;
 }
 .rando {
-    background-color:hotpink;
-    color:black;
+    background-color:#b026ff !important;
+    color:black !important;
 }
 .homestep {
     display:flex;

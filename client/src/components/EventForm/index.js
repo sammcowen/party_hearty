@@ -1,56 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function EventForm () {
-    const [eventName,  seteventName] = React.useState('');
-    const [eventDescription, seteventDescription]  = React.useState('');
-    const[eventFee,seteventFee]  = React.useState('');
-    const[eventDate, seteventDate]  = React.useState('');
-    const[eventLocation,seteventLocation]  = React.useState('');
-    const[eventGuests,seteventGuests]  = React.useState('');
+// import { useMutation } from '@apollo/client';
+// import { ADD_EVENT } from '../../utils/mutations';
+// import Auth from '../../utils/auth';
 
-    function handleSubmit(event) {
+function EventForm({addEvent}) {
+
+    const [eventInfo, seteventInfo] = useState({ name: '', description: '', date: '', location: '', fee: '' });
+    const handleChange = (event) => {
+        seteventInfo({...eventInfo,[event.target.name]: event.target.value});
+    }
+    const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('eventName:', eventName);
-        console.log('eventDescription', eventDescription);
-        console.log('eventFee',eventFee);
-        console.log('eventDate',eventDate);
-        console.log('eventLocation',eventLocation);
-        console.log('eventGuests',eventGuests);
+        addEvent(eventInfo);
+        seteventInfo({name:'',description: '', date: '', location: '', fee: ''})
     }
     return (
         <div className='formstyle'>
-        <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="eventName" >Event Name :</label>
-                    <input type="text" id="eventName" value ={eventName} onChange={(e) => seteventName(e.target.value)} placeholder="Samm's Birthday"/>
+            <form onSubmit={handleSubmit}class="row g-3">
+                <div class="col-md-6">
+                    <label htmlFor="name" class="form-label">Event Name</label>
+                    <input type="text" class="form-control" name="name" value = {eventInfo.name} onChange={handleChange} />
                 </div>
-                <div >
-                    <label htmlFor="eventDescription" >Event Description :</label>
-                    <textarea  id="eventDescription" value ={eventDescription} onChange={(e) => seteventDescription(e.target.value)} rows="2"></textarea>
+                <div class="col-md-6">
+                    <label htmlFor="description" class="form-label">Event Description</label>
+                    <textarea name="description" class="form-control" value={eventInfo.description} onChange={handleChange} />
                 </div>
-                <div>
-                    <label htmlFor="eventFee" >Event Fee :</label>
-                    <input type="text" id="eventFee" value ={eventFee} onChange={(e) => seteventFee(e.target.value)}placeholder="150"/>
+                <div class="col-12">
+                    <label htmlFor="date" class="form-label">Event Date</label>
+                    <input type="date" class="form-control" name="date" placeholder="June 16" value={eventInfo.date} onChange={handleChange} />
                 </div>
-                <div>
-                    <label htmlFor="eventDate" >Event Date :</label>
-                    <input type="text" id="eventDate" value ={eventDate} onChange={(e) => seteventDate(e.target.value)}placeholder="June 16"/>
+                <div class="col-12">
+                    <label htmlFor="location" class="form-label">Event Location</label>
+                    <input type="text" class="form-control" name="location" placeholder="Vegas!" value={eventInfo.location}  onChange={handleChange}/>
                 </div>
-                <div>
-                    <label htmlFor="eventLocation" >Event Location :</label>
-                    <input type="text" id="eventLocation" value ={eventLocation} onChange={(e) => seteventLocation(e.target.value)}placeholder="My House"/>
+                <div class="col-md-6">
+                    <label htmlFor="fee" class="form-label">Event Fee</label>
+                    <input type="text" class="form-control" name="fee" placeholder="100" value={eventInfo.fee} onChange={handleChange} />
                 </div>
-                <div>
-                    <label htmlFor="eventGuests" >Event Date :</label>
-                    <input type="text" id="eventGuests" value ={eventGuests}
-                    onChange={(e) => seteventGuests(e.target.value)} placeholder="Everyone!"/>
+
+                <div class="col-12">
+                    <button type="submit" class="rando btn">Create Event</button>
                 </div>
             </form>
-            <button type="submit">Submit Your Event</button>
-            </div>
+        </div>
     );
-    
-
 };
+
+
 
 export default EventForm;
