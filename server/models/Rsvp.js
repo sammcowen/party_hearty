@@ -10,7 +10,12 @@ const rsvpSchema = new Schema(
             default: false,
             require: true
         },
-        attendent: [ userSchema ],
+        attendent: [ 
+            {
+                type: Schema.Types.ObjectId,
+                ref: "User"
+            }
+         ],
         eventId: [
             {
                 type: Schema.Types.ObjectId,
@@ -21,4 +26,4 @@ const rsvpSchema = new Schema(
 )
 
 const Rsvp = model('Rsvp', rsvpSchema)
-module.exports = Rsvp
+module.exports = Rsvp;
