@@ -53,9 +53,12 @@ const  typeDefs = gql `
         removeGuest(guestId: ID!, eventId: ID!): Event
         removeEvent(eventId: ID!): Event
         removeFollowers(followersId: ID!): User
-        confirmRsvp(eventId: ID!, attending: Boolean!): Event
         
     }
-`;
+    `;
+    
+    // rsvp mutation in case we come back to it 
+    // confirmRsvp(eventId: ID!, attending: Boolean!): Event
 
-module.exports = typeDefs;
+
+    module.exports = typeDefs;
