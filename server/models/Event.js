@@ -34,11 +34,16 @@ const eventSchema = new Schema(
         },
         guests: [
             {
-                
+                type: Schema.Types.ObjectId,
                 ref: "User"
             }
         ],
-        guestsRsvp: [ rsvpSchema ]
+        guestsRsvp: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Rsvp"
+            }
+        ]
     }, 
     {
         toJSON: {
