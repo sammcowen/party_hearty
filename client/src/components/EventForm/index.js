@@ -45,8 +45,9 @@ function EventForm () {
                     <input type="text" id="eventGuests" value ={eventGuests}
                     onChange={(e) => seteventGuests(e.target.value)} placeholder="Everyone!"/>
                 </div>
+                <button type="submit">Submit Your Event</button>
+
             </form>
-            <button type="submit">Submit Your Event</button>
             </div>
     );
     
