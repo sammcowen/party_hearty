@@ -4,9 +4,9 @@ import { ADD_EVENT } from '../../utils/mutations';
 // import Auth from '../../utils/auth';
 
 function EventForm(props) {
-    const[formState, setFormState] = useState({ eventName:'',eventDescription:'', eventDate:'', eventLocation:'', eventFee:''});
+    const[formState, setFormState] = useState({ name:'',description:'', date:'', location:'', fee:''});
     const [addEvent] = useMutation(ADD_EVENT);
-    const {eventName, eventDescription, eventDate, eventLocation, eventFee} = formState;
+    const {name, description, date, location, fee} = formState;
   
 
     function handleChange(e) {
@@ -17,10 +17,11 @@ function EventForm(props) {
     };
     const handleSubmit= async (event) => {
         event.preventDefault();
+        console.log(setFormState);
         try {
             await addEvent({
                 variables:{
-                    eventName, eventDescription,eventDate,eventLocation,eventFee
+                    name, description,date,location,fee
                 }
             });
             setFormState('');
@@ -36,25 +37,25 @@ function EventForm(props) {
             <div id="eventform"className='formstyle'>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="eventName" >Event Name :</label>
-                        <input type="text" name="eventName" defaultValue={eventName}  onChange={handleChange} placeholder="Samm's Birthday" />
+                        <label htmlFor="name" >Event Name :</label>
+                        <input type="text" name="name" defaultValue={name}  onChange={handleChange} placeholder="Samm's Birthday" />
                     </div>
                     <div >
-                        <label htmlFor="eventDescription" >Event Description :</label>
-                        <textarea name="eventDescription" defaultValue={eventDescription} onChange={handleChange} rows="2"></textarea>
+                        <label htmlFor="description" >Event Description :</label>
+                        <textarea name="description" defaultValue={description} onChange={handleChange} rows="2"></textarea>
                     </div>
                     <div>
-                        <label htmlFor="eventDate" >Event Date :</label>
-                        <input type="text" name="eventDate" defaultValue={eventDate} onChange={handleChange} placeholder="June 16" />
+                        <label htmlFor="date" >Event Date :</label>
+                        <input type="text" name="date" defaultValue={date} onChange={handleChange} placeholder="June 16" />
                     </div>
                     
                     <div>
-                        <label htmlFor="eventLocation" >Event Location :</label>
-                        <input type="text" name="eventLocation" defaultValue={eventLocation} onChange={handleChange} placeholder="My House" />
+                        <label htmlFor="location" >Event Location :</label>
+                        <input type="text" name="location" defaultValue={location} onChange={handleChange} placeholder="My House" />
                     </div>
                     <div>
-                        <label htmlFor="eventFee" >Event Fee :</label>
-                        <input type="text" name="eventFee" defaultValue={eventFee} onChange={handleChange} placeholder="June 16" />
+                        <label htmlFor="fee" >Event Fee :</label>
+                        <input type="text" name="fee" defaultValue={fee} onChange={handleChange} placeholder="June 16" />
                     </div>
                     <button type="submit">Submit Your Event</button>
                 </form>
