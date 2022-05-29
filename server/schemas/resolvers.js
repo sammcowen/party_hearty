@@ -125,20 +125,40 @@ const resolvers = {
         },
 
         // updates the event details
-        // TODO: test query
-        updateEvent: async (parent, args, eventId, context)=>{
+        // TODO: get it to not display null data
+        updateEvent: async (parent, {args, eventId}, context) => {
+            // if (context.user) {
+            //     try {
+            //         // finds the event through event id and updates arguments
+            //         const event = await Event.findByIdAndUpdate({ _id: eventId }, args, { new: true });
+
+            //         if (event) {
+            //             try {
+            //                 // set the updated event in the events array
+            //                 return await User.findByIdAndUpdate(
+            //                     { _id: context.user._id },
+            //                     //  this may need to be changed to { $set: { events: event._id } }
+            //                     { $set: { events: event } },
+            //                     { new: true }
+            //                 )
+            //             } catch (e) { consloe.log(e) }
+            //         }
+            //     } catch (e) { concole.log(e) }
+            // }
+            // throw new AuthenticationError('You need to be logged in to update an event');
             if(context.user){
-                 // finds the event through event id and updates arguments
-                 const event = await Event.findByIdAndUpdate(eventId, args, { new:true });
-                 // set the updated event in the events array
-                return await User.findByIdAndUpdate(
-                     { _id: context.user._id },
-                    //  this may need to be changed to { $set: { events: event._id } }
-                     { $set: { events: event } },
-                     { new: true }
-                 )
-            }
-            throw new AuthenticationError('You need to be logged in to update an event');
+                // finds the event through event id and updates arguments
+                const event = await Event.findByIdAndUpdate(eventId, {...args});
+                // console.log(event);
+                // set the updated event in the events array
+               return await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                   //  this may need to be changed to { $set: { events: event._id } }
+                    { $set: { events: event } },
+                    { new: true }
+                )
+           }
+           throw new AuthenticationError('You need to be logged in to update an event');
         },
 
         // removes guest from event
