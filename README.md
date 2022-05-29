@@ -34,12 +34,10 @@ An application that allows users to plan social events with ease!
   ## Demo 📽
  Below is a demo of our app in mobile view
  
- )
  
   [Check out our deployed app live here].
 
-  ## Installation
-  💻
+  ## Installation 💻
   Follow these steps to properly install this application:
 
   1. Clone the repo from github
@@ -53,8 +51,7 @@ An application that allows users to plan social events with ease!
 
   to be edited upon finish
 
-  ## Contributions
-  💁🏽‍♂️
+  ## Contributions 💁🏽‍♂️
   If you would like to contribute to this project, please follow these guidelines: 
 
   Please feel free to reach out to any of the team at our github accounts in the [Questions section](#Questions) below.
