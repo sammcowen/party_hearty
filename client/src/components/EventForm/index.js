@@ -1,18 +1,13 @@
 import React , { useState }from 'react';
-// import { useMutation } from '@apollo/client';
-// import { ADD_EVENT } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_EVENT } from '../../utils/mutations';
 // import Auth from '../../utils/auth';
 
 function EventForm(props) {
     const[formState, setFormState] = useState({ eventName:'',eventDescription:'', eventDate:'', eventLocation:'', eventFee:''});
-    // const [addEvent] = useMutation(ADD_EVENT);
+    const [addEvent] = useMutation(ADD_EVENT);
     const {eventName, eventDescription, eventDate, eventLocation, eventFee} = formState;
-    // const [eventName, seteventName] = React.useState('');
-    // const [eventDescription, seteventDescription] = React.useState('');
-    // const [eventFee, seteventFee] = React.useState('');
-    // const [eventDate, seteventDate] = React.useState('');
-    // const [eventLocation, seteventLocation] = React.useState('');
-    // const [eventGuests, seteventGuests] = React.useState('');
+  
 
     function handleChange(e) {
        setFormState({...formState, [e.target.name]: e.target.value})
@@ -20,9 +15,21 @@ function EventForm(props) {
 
        
     };
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(formState);
+    const handleSubmit= async (event) => {
+        event.preventDefault();
+        try {
+            await addEvent({
+                variables:{
+                    eventName, eventDescription,eventDate,eventLocation,eventFee
+                }
+            });
+            setFormState('');
+        }
+        catch(e) {
+            console.error(e);
+        }
+        
+       
     };
     
         return (
