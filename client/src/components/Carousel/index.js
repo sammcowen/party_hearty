@@ -6,16 +6,16 @@ import Grad from '../../assets/gradjumbo.jpg';
 function Carousel () {
     return (
         <div>
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src={Club} class="d-block w-100" alt="..."/>
+            <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src={Club} className="d-block w-100" alt="..."/>
     </div>
-    <div class="carousel-item">
-      <img src={Bday} class="d-block w-100" alt="..."/>
+    <div className="carousel-item">
+      <img src={Bday} className="d-block w-100" alt="..."/>
     </div>
-    <div class="carousel-item">
-      <img src={Grad}class="d-block w-100" alt="..."/>
+    <div className="carousel-item">
+      <img src={Grad}className="d-block w-100" alt="..."/>
     </div>
   </div>
 </div>
