@@ -148,15 +148,16 @@ const resolvers = {
             // throw new AuthenticationError('You need to be logged in to update an event');
             if(context.user){
                 // finds the event through event id and updates arguments
-                const event = await Event.findByIdAndUpdate(eventId, {...args});
-                // console.log(event);
+                const event = await Event.findByIdAndUpdate(eventId, args, {new:true});
+                return console.log(event);
                 // set the updated event in the events array
-               return await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                   //  this may need to be changed to { $set: { events: event._id } }
-                    { $set: { events: event } },
-                    { new: true }
-                )
+            //    return await User.findByIdAndUpdate(
+            //         { _id: context.user._id },
+            //        //  this may need to be changed to { $set: { events: event._id } }
+            //         { $set: { events: event } },
+            //         { new: true }
+            //     )
+               
            }
            throw new AuthenticationError('You need to be logged in to update an event');
         },
