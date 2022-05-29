@@ -27,8 +27,8 @@ const resolvers = {
             return Event.find()
         },
         // get event by name
-        event: async (parent, { name }) => {
-            return Event.findOne({ name })
+        event: async (parent, { id }) => {
+            return Event.findOne({ id })
         }
     },
     Mutation: {
@@ -53,7 +53,19 @@ const resolvers = {
             return { token, user };
         },
         updateUser: async (parent, args, context) => {
-            
+            if (context.user){
+                try {
+                  return await User.findOneAndUpdate(
+                        { _id: context.user._id },
+                        { firstName: args.firstName, lastName: args.lastName,
+                        username: args.username, password: args.password},
+                        { new: true }
+                    );
+                } catch (e) {
+                    console.log (e)
+                }
+            }
+            throw new AuthenticationError('You need to be logged in to updated User info')
         },
         addEvent: async (parent, args, context) => {
             if (context.user) {
@@ -62,7 +74,7 @@ const resolvers = {
                 // push event obj to User collection by id
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { events: event._id } },
+                    { $push: { events: event._id }},
                     { new: true }
                 )
                 return event;
