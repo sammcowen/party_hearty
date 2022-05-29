@@ -1,11 +1,11 @@
 import React from 'react';
-import { useMutation } from '@apollo/client';
-import { ADD_EVENT } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+// import { useMutation } from '@apollo/client';
+// import { ADD_EVENT } from '../../utils/mutations';
+// import Auth from '../../utils/auth';
 
 function EventForm(props) {
     // const[formState, setFormState] = useState({ eventName:'',eventDescription:'', eventDate:'', eventLocation:'', eventFee:''});
-    const [addEvent] = useMutation(ADD_EVENT);
+    // const [addEvent] = useMutation(ADD_EVENT);
     const [eventName, seteventName] = React.useState('');
     const [eventDescription, seteventDescription] = React.useState('');
     const [eventFee, seteventFee] = React.useState('');
@@ -13,23 +13,18 @@ function EventForm(props) {
     const [eventLocation, seteventLocation] = React.useState('');
     // const [eventGuests, seteventGuests] = React.useState('');
 
-    const handleSubmit = async (event) => {
+    function handleSubmit(event) {
         event.preventDefault();
         console.log(eventName);
+        console.log(eventDate);
+        console.log(eventLocation);
+        console.log(eventFee);
+        console.log(eventDescription);
         
 
-        const mutationRes = await addEvent({
-            variables: {
-                eventName: seteventName,
-                eventDescription: seteventDescription,
-                eventDate: seteventDate,
-                eventLocation: seteventLocation,
-                eventFee: seteventFee,
-            }
-        })
-        const token = mutationRes.data.addEvent.token;
-        Auth.login(token);
+       
     };
+    
         return (
             <div className='formstyle'>
                 <form onSubmit={handleSubmit}>
@@ -52,7 +47,7 @@ function EventForm(props) {
                     </div>
                     <div>
                         <label htmlFor="eventFee" >Event Fee :</label>
-                        <input type="text" id="eventFee" value={eventFee} onChange={(e) => seteventDate(e.target.value)} placeholder="June 16" />
+                        <input type="text" id="eventFee" value={eventFee} onChange={(e) => seteventFee(e.target.value)} placeholder="June 16" />
                     </div>
                     <button type="submit">Submit Your Event</button>
                 </form>
