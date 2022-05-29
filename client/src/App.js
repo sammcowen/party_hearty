@@ -1,5 +1,5 @@
 import React from 'react';
-import {  BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -20,7 +20,8 @@ import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 
 import './index.css';
-// import EventFormPage from './pages/EventFormPage';
+import EventFormPage from './pages/EventFormPage';
+// import EventForm from './components/EventForm';
 
 // import './index.css';
 // import Eventform from './pages/Eventform';
@@ -51,36 +52,39 @@ const client = new ApolloClient({
 function App() {
   return (
     <>
-    
+
       <ApolloProvider client={client}>
-         <Router>
-           <div className="">
-             <Routes>
-               <Route 
-                 path="/" 
-                 element={<Home />} 
-               />
-                <Route 
-                path="/login" 
-                element={<Login />} 
+        <Router>
+          <div className="">
+            <Routes>
+              <Route
+                path="/"
+                element={<Home />}
               />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
+              <Route
+                path="/login"
+                element={<Login />}
               />
-         
-                 <Route
-                     path= "/event"
-                     element={<EventPage />}
-                 />
-               <Route 
-                 path="*" 
-                 element={<NoMatch />} 
-               />
-             </Routes>
-         </div>
-       </Router>
-     </ApolloProvider>
+              <Route
+                path="/signup"
+                element={<Signup />}
+              />
+              <Route
+                path="/EventFormPage"
+                element={<EventFormPage />}
+              />
+              <Route
+                path="/event"
+                element={<EventPage />}
+              />
+              <Route
+                path="*"
+                element={<NoMatch />}
+              />
+            </Routes>
+          </div>
+        </Router>
+      </ApolloProvider>
 
     </>
   );

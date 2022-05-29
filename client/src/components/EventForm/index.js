@@ -1,4 +1,7 @@
 import React from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_EVENT } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 function EventForm () {
     const [eventName,  seteventName] = React.useState('');
@@ -10,12 +13,14 @@ function EventForm () {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log('eventName:', eventName);
+        console.log(eventName);
         console.log('eventDescription', eventDescription);
         console.log('eventFee',eventFee);
         console.log('eventDate',eventDate);
         console.log('eventLocation',eventLocation);
         console.log('eventGuests',eventGuests);
+        
+
     }
     return (
         <div className='formstyle'>
@@ -45,8 +50,9 @@ function EventForm () {
                     <input type="text" id="eventGuests" value ={eventGuests}
                     onChange={(e) => seteventGuests(e.target.value)} placeholder="Everyone!"/>
                 </div>
+                <button type="submit">Submit Your Event</button>
             </form>
-            <button type="submit">Submit Your Event</button>
+            
             </div>
     );
     
