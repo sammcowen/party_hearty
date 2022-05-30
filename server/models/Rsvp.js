@@ -10,18 +10,16 @@ const rsvpSchema = new Schema(
             default: false,
             require: true
         },
-        invi: [ 
+        invitedUserId: [ 
             {
                 type: Schema.Types.ObjectId,
                 ref: "User"
             }
          ],
-        eventId: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Event"
-            }
-        ]
+        eventId: {
+            type: String,
+            required: true
+        }
     }
 )
 

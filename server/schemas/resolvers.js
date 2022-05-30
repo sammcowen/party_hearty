@@ -202,7 +202,7 @@ const resolvers = {
                     try {
                         const invitedUser = await User.findByIdAndUpdate(
                             invitedUserId,
-                            {$addToSet: {invitesRecieved: RSVP}},
+                            {invitesRecieved: RSVP },
                             {new: true}
                         ).populate('followers').populate('following').populate('invitesRecieved')
                         console.log(invitedUser)
