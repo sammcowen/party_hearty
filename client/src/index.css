@@ -5,7 +5,7 @@
 }
 h2 {
     font-family: 'Roboto Condensed', sans-serif;
-    color:#b026ff;
+    color:white;
 }
 body {
     background-color: black !important;
@@ -31,6 +31,22 @@ img {
     font-weight: bold;
     /* width:100px; */
     
+}
+
+.homestep1 {
+    color:white;
+}
+.footer {
+    background-color: #b026ff;
+    color:black;
+    width:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+ a :hover{
+    color:black;
 }
 .formstyle {
     border:2px solid #b026ff;
@@ -98,4 +114,8 @@ img {
     display: flex;
     justify-content: space-between;
     width: auto;
+}
+
+.center {
+    text-align: center;
 }
