@@ -30,6 +30,8 @@ const EventPage = () => {
 // {dateFormat(event.date)}
     console.log(event);
 
+    const eventDate = (timestamp) => new Date(timestamp).toUTCString()
+
     if (loading) {
         return <div>Loading...</div>;
       }
@@ -54,7 +56,7 @@ const EventPage = () => {
                         <div className='container justify-between'>
                         <div className="detail-box">
                             <div>Event hosted by: <span>Placeholder Username </span> </div>
-                            <div>Event hosted on: <span> {Date(event.date)} </span>  </div>
+                            <div>Event hosted on: <span> {eventDate(parseInt(event.date))} </span>  </div>
                             <div>Event hosted at: <span>{event.location}</span> </div>
                         </div>
                             <Map location={event.location}/>
