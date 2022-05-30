@@ -5,7 +5,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function UserEventList ({ events }) {
+function MeEventList ({ events }) {
     if (!events.length) {
         return <h3>No Events Yet</h3>;
     } else {
@@ -27,8 +27,6 @@ function UserEventList ({ events }) {
                     </div>
                     <ul>
                         <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
-                        <li> Update Event </li>
-                        <li> Delete Event </li>
                     </ul>
                 </>
                 ))}
@@ -39,5 +37,5 @@ function UserEventList ({ events }) {
 
 
 
-export default UserEventList;
+export default MeEventList;
 

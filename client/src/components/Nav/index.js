@@ -20,6 +20,11 @@ function Nav () {
                   Home
                 </Link>
           </li>
+          <li className="">
+            <Link to='/eventformpage'>
+              Create Event
+            </Link>
+          </li>
           <li> <a href='/' onClick={() => Auth.logout()}> Logout </a></li>
         </ul>
       );
