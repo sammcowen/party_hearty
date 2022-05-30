@@ -10,6 +10,8 @@ function UserEventList ({ events }) {
         return <h3>No Events Yet</h3>;
     } else {
 
+    const eventDate = (timestamp) => new Date(timestamp).toUTCString()
+
     return (
         <div className="card col-9">
 
@@ -19,7 +21,7 @@ function UserEventList ({ events }) {
                     EventName : {event.name} <br/>
                     Description : {event.description}<br/>
                     Location : {event.location} <br/>
-                    Date : {Date(event.date)}<br/>
+                    Date : {eventDate(parseInt(event.date))}<br/>
                     Fee : ${event.fee}<br/>
                 </div>
             ))}
@@ -28,28 +30,7 @@ function UserEventList ({ events }) {
     )}
 };
 
+
+
 export default UserEventList;
 
-
-// <div key={event._id} className="card mb-3">
-//  <p className="card-header">
-//                 <Link
-//                     to={`/profile/${event.username}`}
-//                     style={{ fontWeight: 700 }}
-//                     className="text-light"
-//                 >
-//                     {event.username}
-//                 </Link>{' '}
-//                 event on {event.createdAt}
-//                 </p>
-//                 <div className="card-body">
-//                 <Link to={`/event/${event._id}`}>
-//                     <p>{event.eventText}</p>
-//                     <p className="mb-0">
-//                     Reactions: {event.reactionCount} || Click to{' '}
-//                     {event.reactionCount ? 'see' : 'start'} the discussion!
-//                     </p>
-//                 </Link>
-//                 </div>
-//             </div>
-      
