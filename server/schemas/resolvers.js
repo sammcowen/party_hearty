@@ -45,8 +45,8 @@ const resolvers = {
                 ;
         },
         // get event by name
-        event: async (parent, { name }) => {
-            return Event.findOne({ name })
+        event: async (parent, { id }) => {
+            return Event.findOne({ id })
                 .select('-__v')
                 .populate('guests')
                 ;

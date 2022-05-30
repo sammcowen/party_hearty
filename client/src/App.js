@@ -8,10 +8,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import './index.css';
-
-
-
 
 import Home from './pages/Home';
 import EventPage from './pages/EventPage';
@@ -21,13 +17,7 @@ import NoMatch from './pages/NoMatch';
 
 import './index.css';
 import EventFormPage from './pages/EventFormPage';
-// import EventForm from './components/EventForm';
 
-// import './index.css';
-// import Eventform from './pages/Eventform';
-// import Login from './pages/Login';
-// import Rsvp from './pages/Rsvp';
-// import Signup from './pages/Signup';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
