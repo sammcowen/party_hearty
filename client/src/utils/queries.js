@@ -151,16 +151,6 @@ export const QUERY_ME = gql `
             lastName
             username
             email
-            folowers {
-                firstName
-                lastName
-                username
-            }
-            following {
-                firstName
-                lastName
-                username
-            }
             events {
                 _id
                 name
@@ -168,20 +158,32 @@ export const QUERY_ME = gql `
                 fee
                 date
                 location
-                guests {
-                    firstName
-                    lastName
-                    username
-                }
-                guestsRSVP {
-                    attending
-                    User {
-                        firstName
-                        lastName
-                        username
-                    }
-                }
+               
             }
         }
     }
 `;
+
+// folowers {
+//     firstName
+//     lastName
+//     username
+// }
+// following {
+//     firstName
+//     lastName
+//     username
+// }
+// guests {
+//     firstName
+//     lastName
+//     username
+// }
+// guestsRSVP {
+//     attending
+//     User {
+//         firstName
+//         lastName
+//         username
+//     }
+// }
