@@ -39,25 +39,26 @@ export const ADD_USER = gql`
   }
 `;
 export const ADD_EVENT = gql`
-  mutation addEvent(
-    $name: String!
-    $description: String!
-    $date: String!
-    $location: String!
-    $fee: Int
-  ) 
-  {
-    addEvent(
-      name: $name
-      description: $description
-      date: $date
-      location: $location
-      fee: $fee
-    ) {
-      token
-   user {
-         _id
+  mutation AddEvent($name: String!, $description: String!, $date: String!, $location: String!, $fee: Int) {
+    addEvent(name: $name, description: $description, date: $date, location: $location, fee: $fee) {
+      name
+      description
+      fee
+      date
+      location
+      guests {
+        firstName
+        lastName
       }
+      guestsRsvp {
+        attending
+        attendentId {
+          firstName
+          lastName
+        }
+        eventId
+      }
+      isPrivate
     }
   }
 `;

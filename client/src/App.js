@@ -74,7 +74,7 @@ function App() {
                 element={<EventFormPage />}
               />
               <Route
-                path="/event"
+                path="/event/:id"
                 element={<EventPage />}
               />
               <Route

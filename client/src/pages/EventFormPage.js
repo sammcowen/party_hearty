@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 // import Jumbotron from '../components/Jumbotron';
 import Nav from '../components/Nav';
 import Carousel from '../components/Carousel';
 import EventForm from '../components/EventForm';
 
 const EventFormPage = () => {
-    const [events, updateEvent] =useState([]);
+    // const [events, updateEvent] =useState([]);
 
-    const addEvent = (eventInfo) => {
-        updateEvent([...events, eventInfo]);
-    };
-    console.log(events)
+    // const addEvent = (eventInfo) => {
+    //     updateEvent([...events, eventInfo]);
+    // };
+    // console.log(events)
     return (
         <div>
             <Carousel></Carousel>
@@ -20,7 +20,7 @@ const EventFormPage = () => {
                 Fill out the form below to get your next event started!
             </h2>
             </div>
-            <EventForm addEvent={addEvent}/>
+            <EventForm />
             </div>
       
     );

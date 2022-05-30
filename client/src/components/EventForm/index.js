@@ -8,13 +8,16 @@ function EventForm() {
 
     const [eventInfo, seteventInfo] = useState({ name: '', description: '', date: '', location: '', fee: '' });
     const handleChange = (event) => {
-        seteventInfo({...eventInfo,[event.target.name]: event.target.value});
+        seteventInfo({...eventInfo, [event.target.name]: event.target.value});
     }
+    const newFee = parseInt(eventInfo.fee);
+    console.log(newFee);
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try { 
             await addEvent({
-                variables: {...eventInfo}
+                variables: { name: eventInfo.name, description: eventInfo.description, date: eventInfo.date, location: eventInfo.location, fee: newFee}
             })
         } catch (e) {
             console.error(error);
