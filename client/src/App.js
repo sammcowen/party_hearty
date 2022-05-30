@@ -14,11 +14,14 @@ import EventPage from './pages/EventPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
+import MeetTeam from './pages/MeetTeam';
 
 
 import './index.css';
 import EventFormPage from './pages/EventFormPage';
 import HomePageUser from './pages/HomePageUser';
+
+import Auth from './utils/auth'
 
 
 
@@ -46,6 +49,24 @@ const client = new ApolloClient({
 });
 
 function App() {
+
+  function authHome () {
+    if(Auth.loggedIn()) {
+      return(
+        <Route
+          path="/"
+          element={<HomePageUser />}
+        />
+      );
+    } else {
+      return(
+        <Route
+          path="/"
+          element={<Home/>}
+        />
+      );
+    }
+  }
   return (
     <>
 
@@ -53,10 +74,7 @@ function App() {
         <Router>
           <div className="">
             <Routes>
-              <Route
-                path="/"
-                element={<Home />}
-              />
+              {authHome()}
               <Route
                 path="/login"
                 element={<Login />}
@@ -70,12 +88,12 @@ function App() {
                 element={<EventFormPage />}
               />
               <Route
-              path="/HomePageUser"
-              element={<HomePageUser/>}
-              />
-              <Route
                 path="/event/:id"
                 element={<EventPage />}
+              />
+              <Route
+                path='/contributors/team'
+                element={<MeetTeam/>}
               />
               <Route
                 path="*"
