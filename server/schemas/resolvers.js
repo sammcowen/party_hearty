@@ -9,24 +9,26 @@ const resolvers = {
             // if context.user exists, return the userData
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                return userData;
+                    .populate('events').populate('followers').populate('following')
+                
+                    return userData;
             }
             // if no context.user exists, we know that the user is not authenticated
             throw new AuthenticationError('Not logged in');
         },
         // get all users 
         users: async () => {
-            return User.find()
+            return User.find().populate('events').populate('followers').populate('following')
         },
         // get user by username
         user: async (parent, { username }) => {
-            return User.findOne({ username })
+            return User.findOne({ username }).populate('events').populate('followers').populate('following')
         },
         // get all events 
         events: async () => {
             return Event.find()
         },
-        // get event by name
+        // get event by id
         event: async (parent, { _id }) => {
             try {
                const foundEvent = await Event.findOne({ _id });
@@ -61,12 +63,14 @@ const resolvers = {
         updateUser: async (parent, args, context) => {
             if (context.user){
                 try {
-                  return await User.findOneAndUpdate(
-                        { _id: context.user._id },
-                        { firstName: args.firstName, lastName: args.lastName,
-                        username: args.username, password: args.password},
-                        { new: true }
-                    );
+                    const user = await User.findOneAndUpdate(
+                            { _id: context.user._id },
+                            { ...args },
+                            { new: true }
+                        );
+                    const token = signToken(user);
+                    return { token, user }
+
                 } catch (e) {
                     console.log (e)
                 }

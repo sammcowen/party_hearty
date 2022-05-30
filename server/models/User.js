@@ -19,7 +19,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
             trim: true,
-            unique: 'That username has been taken'
+            unique: true
         },
         email: {
             type: String,
@@ -57,7 +57,7 @@ const userSchema = new Schema(
     },
     {
         toJSON: {
-            virtuals: true
+            virtuals: true,
         }
     }
 );
@@ -72,7 +72,7 @@ userSchema.virtual('FollowingCount').get(function() {
 });
 
 // set up pre-save middleware to create password
-userSchema.pre('save', async function(next) {
+userSchema.pre(['save', 'findOneAndUpdate','findByIdAndUpdate','updateOne' ], async function(next) {
     if (this.isNew || this.isModified('password')) {
       const saltRounds = 10;
       this.password = await bcrypt.hash(this.password, saltRounds);
