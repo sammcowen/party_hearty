@@ -14,13 +14,23 @@ function Nav () {
   function showNav() {
     if(Auth.loggedIn()) {
       return(
-        <ul>
+        <ul className="flex-row">
+          <li className="">
+                <Link to="/">
+                  Home
+                </Link>
+          </li>
           <li> <a href='/' onClick={() => Auth.logout()}> Logout </a></li>
         </ul>
       );
     } else {
       return(
         <ul className="flex-row">
+              <li className="">
+                <Link to="/">
+                  Home
+                </Link>
+              </li>
               <li className="">
                 <Link to="/signup">
                   Signup
