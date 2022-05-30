@@ -7,7 +7,6 @@ const  typeDefs = gql `
         lastName: String
         username: String
         email: String
-        password: String
         followers: [User]
         following: [User]
         events: [Event]
@@ -47,7 +46,7 @@ const  typeDefs = gql `
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): Auth
-        updateUser(firstName: String, lastName: String, username: String, email: String, password: String): Auth
+        updateUser(firstName: String, lastName: String, username: String, email: String, password: String): User
         addEvent(name: String!, description: String!, date: String!, location: String!, fee: Int): Event
         addFollower (followerId: ID!): User
         addGuest(guestId: ID!, eventId: ID!): Event 
