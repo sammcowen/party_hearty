@@ -212,7 +212,7 @@ const resolvers = {
     // flip the boolean for rsvpresolver
     // attending the event by changing the boolean to true
     // NOTE to front end. search by username and push id to back end
-    // confirmRsvp: async (parent, { rsvpId }, context) => {
+    // confirmRsvp: async (parent, { rsvpId, attending }, context) => {
     //     if(context.user){
     //         return await Event.findOneAndUpdate(
     //             {_id: rsvpId},
