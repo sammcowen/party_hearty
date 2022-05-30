@@ -12,11 +12,12 @@ function MeEventList ({ events }) {
     const [deleteEvent, {err}] = useMutation(DELETE_EVENT);
 
     const handleDeleteEvent = async (eventId) =>{
+        preventDefault();
        console.log(`eventId: ${eventId}`)
         try{
             await deleteEvent({
             variables: {eventId}
-        })
+        });
         }
         catch(err){
             console.error(err);

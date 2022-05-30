@@ -68,6 +68,10 @@ export const DELETE_EVENT = gql`
 mutation removeEvent($eventId: ID!){
   removeEvent(eventId: $eventId){
     _id
+    username
+    email
+    events {
+      _id
     name
     description
     fee
@@ -76,6 +80,7 @@ mutation removeEvent($eventId: ID!){
     guests
     guestsRsvp
     isPrivate
+    }
   }
 }
 `;
