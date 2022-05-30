@@ -9,30 +9,29 @@ const resolvers = {
             // if context.user exists, return the userData
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                .populate('events')
-                return userData;
+                    .populate('events').populate('followers').populate('following')
+                
+                    return userData;
             }
             // if no context.user exists, we know that the user is not authenticated
             throw new AuthenticationError('Not logged in');
         },
         // get all users 
         users: async () => {
-            return User.find()
-            .populate('events')
+            return User.find().populate('events').populate('followers').populate('following')
         },
         // get user by username
         user: async (parent, { username }) => {
-            return User.findOne({ username })
-            .populate('events')
+            return User.findOne({ username }).populate('events').populate('followers').populate('following')
         },
         // get all events 
         events: async () => {
-            return Event.find()
+            return Event.find().populate('guests').populate('guestsRsvp');
         },
-        // get event by name
+        // get event by id
         event: async (parent, { _id }) => {
             try {
-               const foundEvent = await Event.findOne({ _id });
+               const foundEvent = await Event.findOne({ _id }).populate('guests').populate('guestsRsvp');
 
                return foundEvent;
             } catch (e) {
@@ -64,12 +63,13 @@ const resolvers = {
         updateUser: async (parent, args, context) => {
             if (context.user){
                 try {
-                  return await User.findOneAndUpdate(
-                        { _id: context.user._id },
-                        { firstName: args.firstName, lastName: args.lastName,
-                        username: args.username, password: args.password},
-                        { new: true }
-                    );
+                    const user = await User.findOneAndUpdate(
+                            { _id: context.user._id },
+                            { ...args },
+                            { new: true }
+                    ).populate('events').populate('followers').populate('following');
+                    return user;
+
                 } catch (e) {
                     console.log (e)
                 }
@@ -94,11 +94,11 @@ const resolvers = {
         addFollower: async (parent, { followerId }, context) => {
             if (context.user) {
                 // update logged in users following array:
-                const updatedUser = await User.findOneAndUpdate(
+                const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $addToSet: { following: followerId } },
                     { new: true }
-                )
+                ).populate('following').populate('followers');
                 
 
                 // push logged in user id to 
@@ -119,7 +119,7 @@ const resolvers = {
                     { _id: eventId },
                     { $addToSet: { guests: guestId } },
                     { new: true }
-                )
+                ).populate('guests').populate('guestsRsvp');
 
                 return updatedEvent;
             }
@@ -130,25 +130,6 @@ const resolvers = {
         // updates the event details
         // TODO: get it to not display null data
         updateEvent: async (parent, args, context) => {
-            // if (context.user) {
-            //     try {
-            //         // finds the event through event id and updates arguments
-            //         const event = await Event.findByIdAndUpdate({ _id: eventId }, args, { new: true });
-
-            //         if (event) {
-            //             try {
-            //                 // set the updated event in the events array
-            //                 return await User.findByIdAndUpdate(
-            //                     { _id: context.user._id },
-            //                     //  this may need to be changed to { $set: { events: event._id } }
-            //                     { $set: { events: event } },
-            //                     { new: true }
-            //                 )
-            //             } catch (e) { consloe.log(e) }
-            //         }
-            //     } catch (e) { concole.log(e) }
-            // }
-            // throw new AuthenticationError('You need to be logged in to update an event');
             if(context.user){
                 // finds the event through event id and updates arguments
                 const event = await Event.findByIdAndUpdate({_id: args.eventId}, {...args}, {new:true});
@@ -156,7 +137,6 @@ const resolvers = {
            }
            throw new AuthenticationError('You need to be logged in to update an event');
         },
-
         // removes guest from event
         removeGuest: async (parent, { eventId, guestId }, context) => {
             if (context.user) {
@@ -164,14 +144,14 @@ const resolvers = {
                     { _id: eventId },
                     { $pull: { guests: guestId } },
                     { new: true }
-                )
+                ).populate('guests').populate('guestsRsvp');
             }
             throw new AuthenticationError('You need to be logged in to remove a guest');
         },
         // removes event from user
         removeEvent: async (parent, { eventId }, context) => {
             if (context.user) {
-                await User.findOneAndUpdate(
+                await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $pull: { events: eventId } },
                     { new: true }
@@ -187,18 +167,19 @@ const resolvers = {
         removeFollowers: async (parent, { followersId }, context) => {
             if (context.user) {
                 try {  
-                   const updateFollow = await User.findOneAndUpdate(
+                   const updateFollow = await User.findByIdAndUpdate(
                         { _id: followersId},
                         { $pull: { followers: context.user._id } },
                         { new: true }
                     )
                     if (updateFollow) {
                         try {
-                            const updatedUser = await User.findOneAndUpdate(
+                            const updatedUser = await User.findByIdAndUpdate(
                                 { _id: context.user._id },
-                                { $unset: { following: followersId } },
+                                { $pull: { following: followersId } },
                                 { new: true }
-                            ) 
+                            ).populate('followers').populate('following')
+
                             return updatedUser;
                         } catch (e) {
                             console.log('error removing from your folloing array:  ',e)
