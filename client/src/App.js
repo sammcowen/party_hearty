@@ -89,7 +89,7 @@ function App() {
                 element={<EventFormPage />}
               />
               <Route
-                path="/user/:username"
+                path="/username/:username"
                 element={<UserProfile />}
               />
               <Route
