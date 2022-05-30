@@ -148,7 +148,7 @@ const resolvers = {
             // throw new AuthenticationError('You need to be logged in to update an event');
             if(context.user){
                 // finds the event through event id and updates arguments
-                const event = await Event.findByIdAndUpdate(eventId, args, {new:true});
+                const event = await Event.findByIdAndUpdate(eventId, {$set: args}, {new:true});
                 return console.log(event);
                 // set the updated event in the events array
             //    return await User.findByIdAndUpdate(
