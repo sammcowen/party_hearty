@@ -62,3 +62,28 @@ export const ADD_EVENT = gql`
     }
   }
 `;
+
+export const REMOVE_EVENT = gql`
+  mutation removeEvent($eventId: ID!) {
+    removeEvent(eventId:$eventId) {
+      name
+      description
+      fee
+      date
+      location
+      guests {
+        firstName
+        lastName
+      }
+      guestsRsvp {
+        attending
+        attendentId {
+          firstName
+          lastName
+        }zA
+        eventId
+      }
+      isPrivate
+    }
+  }
+`;
