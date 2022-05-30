@@ -15,8 +15,14 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 
+
 import './index.css';
 import EventFormPage from './pages/EventFormPage';
+import HomePageUser from './pages/HomePageUser';
+
+
+
+// import Rsvp from './pages/Rsvp';
 
 
 const httpLink = createHttpLink({
@@ -62,6 +68,10 @@ function App() {
               <Route
                 path="/EventFormPage"
                 element={<EventFormPage />}
+              />
+              <Route
+              path="/HomePageUser"
+              element={<HomePageUser/>}
               />
               <Route
                 path="/event/:id"

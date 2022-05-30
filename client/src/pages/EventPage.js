@@ -9,7 +9,7 @@ import { QUERY_EVENT } from '../utils/queries';
 // import { ParticipantList } from '../components/ParticipantList';
 import { Map } from '../components/Map';
 // import { Details } from '../components/Details';
-import Jumbotron from '../components/Jumbotron';
+import Carousel from '../components/Carousel'
 import Nav from '../components/Nav';
 
 import '../index.css';
@@ -37,7 +37,10 @@ const EventPage = () => {
     return (
         <>
             <div>
-                <Jumbotron/>
+                <div className='text'>
+                    <h1 className="text">Party Hearty</h1>
+                </div>
+                <Carousel/>
                 <Nav/>
             </div>
             <div>
@@ -51,7 +54,7 @@ const EventPage = () => {
                         <div className='container justify-between'>
                         <div className="detail-box">
                             <div>Event hosted by: <span>Placeholder Username </span> </div>
-                            <div>Event hosted on: <span> {Date(event.date)} </span> <span>Time</span> </div>
+                            <div>Event hosted on: <span> {Date(event.date)} </span>  </div>
                             <div>Event hosted at: <span>{event.location}</span> </div>
                         </div>
                             <Map eventAddress={event.location}/>
