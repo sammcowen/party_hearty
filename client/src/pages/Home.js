@@ -17,7 +17,7 @@ const Home = () => {
             <Carousel/>
             <Nav/>
             <div className='text'>
-                <h2>Plan your next event with us ...</h2>
+                <h2 className='text'>Plan your next event with us ...</h2>
                 </div>
             <div className='homestep'>
                 <div className="card col-9">
