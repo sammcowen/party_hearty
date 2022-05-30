@@ -32,6 +32,19 @@ img {
     /* width:100px; */
     
 }
+
+.footer {
+    background-color: #b026ff;
+    color:black;
+    width:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+ a :hover{
+    color:black;
+}
 .formstyle {
     border:2px solid #b026ff;
     font-family: 'Roboto Condensed', sans-serif;
