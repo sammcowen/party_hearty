@@ -1,0 +1,10 @@
+.leaflet-container {
+    width: 30rem;
+    height: 30rem;
+}
+
+
+.align-right {
+    align-items: right;
+    display: flex;
+}

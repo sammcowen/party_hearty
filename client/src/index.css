@@ -1,1 +1,121 @@
 /* this is where any custom css will go */
+*{
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    color:white;
+}
+body {
+    background-color: black !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:whitesmoke !important;
+
+}
+img {
+    height:400px;
+    width: 200px;
+
+}
+.card {
+    margin-bottom:12px;
+    border-radius: 50%;
+    border:none;
+}
+.card-body {
+    border:none;
+    background-color:black;
+    color:#b026ff;
+    font-family:'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    /* width:100px; */
+    
+}
+
+.homestep1 {
+    color:white;
+}
+.footer {
+    background-color: #b026ff;
+    color:black;
+    width:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+ a :hover{
+    color:black;
+}
+.formstyle {
+    border:2px solid #b026ff;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size:15px;
+    background-color:black;
+    color:#b026ff ;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+.rando {
+    background-color:#b026ff !important;
+    color:black !important;
+}
+.homestep {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 20px;;
+
+    
+
+}
+/* .header {
+    background-image: url('./assets/image.png');
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    height:300px;
+    background-size: cover;
+
+}
+.header h1 {
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+} */
+.text {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    
+}
+
+.container{
+    display: flex;
+}
+
+.left {
+    justify-content: left;
+
+}
+
+.right {
+    justify-content: right;
+    flex-direction: column;
+
+}
+
+.justify-between {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+}
+
+.center {
+    text-align: center;
+}
