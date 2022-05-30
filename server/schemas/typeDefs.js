@@ -10,6 +10,7 @@ const  typeDefs = gql `
         followers: [User]
         following: [User]
         events: [Event]
+        invitesRecieved: [Rsvp]
     }
 
     type Event {
@@ -54,6 +55,7 @@ const  typeDefs = gql `
         removeGuest(guestId: ID!, eventId: ID!): Event
         removeEvent(eventId: ID!): Event
         removeFollowers(followersId: ID!): User
+        sendRsvp(attending: Boolean!, invitedUserId: ID, eventId: ID): User
     }
     `;
     

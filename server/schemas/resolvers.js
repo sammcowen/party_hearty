@@ -9,7 +9,7 @@ const resolvers = {
             // if context.user exists, return the userData
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                    .populate('events').populate('followers').populate('following')
+                    .populate('events').populate('followers').populate('following').populate('invitesRecieved')
                 
                     return userData;
             }
@@ -190,8 +190,50 @@ const resolvers = {
                 }
             }
             throw new AuthenticationError('You need to be logged in to remove a Follower');
+        },
+        sendRsvp: async (parent, args, context) => {
+          if(context.user) {
+              try {
+                const RSVP = await Rsvp.create(args);
+                
+                const { invitedUserId } = args;
+                console.log(invitedUserId);
+                if(RSVP) {
+                    try {
+                        const invitedUser = await User.findByIdAndUpdate(
+                            invitedUserId,
+                            {$addToSet: {invitesRecieved: RSVP}},
+                            {new: true}
+                        ).populate('followers').populate('following').populate('invitesRecieved')
+                        console.log(invitedUser)
+                        
+                        return invitedUser;
+                    } catch (e) {
+                        
+                        console.error(e);
+                        return;
+                    }
+                }
+              } catch (e) {
+                  console.error(e)
+                  return;
+              }
+          }
+            throw new AuthenticationError('You need to be logged in to send an RSVP')
+
+        }
+    },
+    User: {
+        invitesRecieved: async (root) => {
+            try {
+                return Rsvp.find({invitedUserId: root._id})
+            } catch (e) {
+                throw new Error(e);
+            }
         }
     }
+    
+
     
     // flip the boolean for rsvpresolver
     // attending the event by changing the boolean to true

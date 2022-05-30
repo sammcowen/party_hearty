@@ -10,7 +10,7 @@ const rsvpSchema = new Schema(
             default: false,
             require: true
         },
-        attendent: [ 
+        invi: [ 
             {
                 type: Schema.Types.ObjectId,
                 ref: "User"
