@@ -9,11 +9,6 @@ const resolvers = {
             // if context.user exists, return the userData
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                    .select('-__v -password')
-                    .populate('followers')
-                    .populate('following')
-                    .populate('events')
-                    ;
                 return userData;
             }
             // if no context.user exists, we know that the user is not authenticated
@@ -22,34 +17,18 @@ const resolvers = {
         // get all users 
         users: async () => {
             return User.find()
-                .select('-__v -password')
-                .populate('followers')
-                .populate('following')
-                .populate('events')
-                ;
         },
         // get user by username
         user: async (parent, { username }) => {
             return User.findOne({ username })
-                .select('-__v -password')
-                .populate('followers')
-                .populate('following')
-                .populate('events')
-                ;
         },
         // get all events 
         events: async () => {
             return Event.find()
-                .select('-__v')
-                .populate('guests')
-                ;
         },
         // get event by name
-        event: async (parent, { name }) => {
-            return Event.findOne({ name })
-                .select('-__v')
-                .populate('guests')
-                ;
+        event: async (parent, { id }) => {
+            return Event.findOne({ id })
         }
     },
     Mutation: {
@@ -73,6 +52,21 @@ const resolvers = {
 
             return { token, user };
         },
+        updateUser: async (parent, args, context) => {
+            if (context.user){
+                try {
+                  return await User.findOneAndUpdate(
+                        { _id: context.user._id },
+                        { firstName: args.firstName, lastName: args.lastName,
+                        username: args.username, password: args.password},
+                        { new: true }
+                    );
+                } catch (e) {
+                    console.log (e)
+                }
+            }
+            throw new AuthenticationError('You need to be logged in to updated User info')
+        },
         addEvent: async (parent, args, context) => {
             if (context.user) {
                 // create new event object
@@ -80,7 +74,7 @@ const resolvers = {
                 // push event obj to User collection by id
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { events: event._id } },
+                    { $push: { events: event._id }},
                     { new: true }
                 )
                 return event;
@@ -96,7 +90,7 @@ const resolvers = {
                     { $addToSet: { following: followerId } },
                     { new: true }
                 )
-                    .populate('following').populate('followers')
+                
 
                 // push logged in user id to 
                 await User.findByIdAndUpdate(
