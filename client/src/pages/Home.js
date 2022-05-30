@@ -1,6 +1,7 @@
 import React from 'react';
 // import Jumbotron from '../components/Jumbotron';
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 import Carousel from '../components/Carousel';
 // import Auth from '../utils/auth';
@@ -35,7 +36,7 @@ const Home = () => {
                     </div>
                 </div>
                 </div>
-
+<Footer/>
             </div>
        
 
