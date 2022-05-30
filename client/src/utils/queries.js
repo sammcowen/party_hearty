@@ -87,6 +87,34 @@ export const QUERY_ALL_USERS = gql `
     }
 `;
 
+export const QUERY_EVENTS = gql `
+    {
+        events{
+            _id
+            name
+            description
+            fee
+            date
+            location
+
+        }
+    }
+`;
+
+            // guests {
+            //     firstName
+            //     lastName
+            //     username
+            // }
+            // guestsRSVP {
+            //     attending
+            //     User {
+            //         firstName
+            //         lastName
+            //         username
+            //     }
+            // }
+
 export const QUERY_EVENT = gql `
     query event($id: ID!) {
         event(_id: $id) {
@@ -96,22 +124,24 @@ export const QUERY_EVENT = gql `
             fee
             date
             location
-            guests {
-                firstName
-                lastName
-                username
-            }
-            guestsRSVP {
-                attending
-                User {
-                    firstName
-                    lastName
-                    username
-                }
-            }
+         
         }
     }
 `;
+
+   // guests {
+            //     firstName
+            //     lastName
+            //     username
+            // }
+            // guestsRSVP {
+            //     attending
+            //     User {
+            //         firstName
+            //         lastName
+            //         username
+            //     }
+            // }
 
 export const QUERY_ME = gql `
     {

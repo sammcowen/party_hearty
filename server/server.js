@@ -21,13 +21,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // // if we're in production, serve client/build as static assets
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../client/build')));
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 app.use(function(err, req, res, next) {
   res.send('uncaught error in production');
@@ -39,16 +39,6 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
   server.applyMiddleware({ app });
   
-  if (process.env.NODE_ENV === 'production') {
-    // if node environments is in production, tell express.js server to serve
-    // any files in the React application's build directory in the client folder.
-    app.use(express.static(path.join(__dirname, '../client/build')));
-    // build files do not contain dev dependencies 
-  };
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-  });
 
   db.once('open', () => {
     app.listen(PORT, () => {

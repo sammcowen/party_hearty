@@ -8,7 +8,7 @@ import './style.css';
 
 // use leaflet to generate
 
-export const Map = () => {
+export const Map = (eventAddress) => {
     
     let position = [21,12]
 
@@ -41,7 +41,7 @@ export const Map = () => {
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Geocoder address="200 California Hall, Berkeley, CA 94720" />
+        <Geocoder address = {eventAddress} />
         {/* <Marker position={position}>
                         <Popup>
                             Place holder for address
