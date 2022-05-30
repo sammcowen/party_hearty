@@ -7,7 +7,7 @@ import { useMutation } from '@apollo/client'
 import { Link } from 'react-router-dom';
 import {DELETE_EVENT} from '../../utils/mutations'
 
-function UserEventList ({ events }) {
+function MeEventList ({ events }) {
 
     const [deleteEvent, {err}] = useMutation(DELETE_EVENT);
 
