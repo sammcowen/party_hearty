@@ -38,6 +38,7 @@ export const ADD_USER = gql`
     }
   }
 `;
+
 export const ADD_EVENT = gql`
   mutation AddEvent($name: String!, $description: String!, $date: String!, $location: String!, $fee: Int) {
     addEvent(name: $name, description: $description, date: $date, location: $location, fee: $fee) {

@@ -18,7 +18,8 @@ function EventForm() {
         try { 
             await addEvent({
                 variables: { name: eventInfo.name, description: eventInfo.description, date: eventInfo.date, location: eventInfo.location, fee: newFee}
-            })
+            });
+            
         } catch (e) {
             console.error(error);
         }
