@@ -20,6 +20,7 @@ import MeetTeam from './pages/MeetTeam';
 import './index.css';
 import EventFormPage from './pages/EventFormPage';
 import HomePageUser from './pages/HomePageUser';
+import UserProfile from './pages/UserProfile';
 
 import Auth from './utils/auth'
 
@@ -86,6 +87,10 @@ function App() {
               <Route
                 path="/EventFormPage"
                 element={<EventFormPage />}
+              />
+              <Route
+                path="/username/:username"
+                element={<UserProfile />}
               />
               <Route
                 path="/event/:id"

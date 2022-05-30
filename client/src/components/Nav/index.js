@@ -6,6 +6,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from "../../utils/auth";
+import UsernameSearch from '../UsernameSearch';
 // import Login from '../Login';
 // import Signup from '../SignUp';
 
@@ -20,6 +21,14 @@ function Nav () {
                   Home
                 </Link>
           </li>
+          <li className="">
+                <UsernameSearch/>
+          </li>
+          <li className="">
+            <Link to='/eventformpage'>
+              Create Event
+            </Link>
+          </li>
           <li> <a href='/' onClick={() => Auth.logout()}> Logout </a></li>
         </ul>
       );
@@ -31,6 +40,9 @@ function Nav () {
                   Home
                 </Link>
               </li>
+              <li className="">
+                <UsernameSearch />
+          </li>
               <li className="">
                 <Link to="/signup">
                   Signup

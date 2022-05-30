@@ -58,5 +58,5 @@ function UserEventList ({ events }) {
 
 
 
-export default UserEventList;
+export default MeEventList;
 

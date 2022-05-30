@@ -8,18 +8,6 @@ export const QUERY_USERS = gql `
             lastName
             username
             email
-            folowers {
-                _id
-                firstName
-                lastName
-                username
-            }
-            following {
-                _id
-                firstName
-                lastName
-                username
-            }
             events {
                 _id
                 name
@@ -27,23 +15,39 @@ export const QUERY_USERS = gql `
                 fee
                 date
                 location
-                guests {
-                    firstName
-                    lastName
-                    username
-                }
-                guestsRSVP {
-                    attending
-                    User {
-                        firstName
-                        lastName
-                        username
-                    }
-                }
+
             }
         }
     }
 `;
+
+
+// folowers {
+//     _id
+//     firstName
+//     lastName
+//     username
+// }
+// following {
+//     _id
+//     firstName
+//     lastName
+//     username
+// }
+
+// guests {
+//     firstName
+//     lastName
+//     username
+// }
+// guestsRSVP {
+//     attending
+//     User {
+//         firstName
+//         lastName
+//         username
+//     }
+// }
 export const QUERY_ALL_USERS = gql `
     {
         users{
@@ -52,16 +56,7 @@ export const QUERY_ALL_USERS = gql `
             lastName
             username
             email
-            folowers {
-                firstName
-                lastName
-                username
-            }
-            following {
-                firstName
-                lastName
-                username
-            }
+            
             events {
                 _id
                 name
@@ -69,23 +64,38 @@ export const QUERY_ALL_USERS = gql `
                 fee
                 date
                 location
-                guests {
-                    firstName
-                    lastName
-                    username
-                }
-                guestsRSVP {
-                    attending
-                    User {
-                        firstName
-                        lastName
-                        username
-                    }
-                }
+                
             }
         }
     }
 `;
+
+// folowers {
+//     firstName
+//     lastName
+//     username
+// }
+// following {
+//     firstName
+//     lastName
+//     username
+// }
+
+// guests {
+//     firstName
+//     lastName
+//     username
+// }
+// guestsRSVP {
+//     attending
+//     User {
+//         firstName
+//         lastName
+//         username
+//     }
+// }
+
+
 
 export const QUERY_EVENTS = gql `
     query events($username:String){
