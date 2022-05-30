@@ -27,8 +27,14 @@ const resolvers = {
             return Event.find()
         },
         // get event by name
-        event: async (parent, { id }) => {
-            return Event.findOne({ id })
+        event: async (parent, { _id }) => {
+            try {
+               const foundEvent = await Event.findOne({ _id });
+
+               return foundEvent;
+            } catch (e) {
+                console.log(e);
+            }
         }
     },
     Mutation: {
