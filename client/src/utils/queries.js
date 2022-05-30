@@ -88,8 +88,8 @@ export const QUERY_ALL_USERS = gql `
 `;
 
 export const QUERY_EVENTS = gql `
-    {
-        events{
+    query events($username:String){
+        events(username: $username){
             _id
             name
             description
