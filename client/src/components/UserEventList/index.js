@@ -3,7 +3,7 @@
 // event hosted
 
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function UserEventList ({ events }) {
     if (!events.length) {
@@ -15,17 +15,24 @@ function UserEventList ({ events }) {
     return (
         <div className="card col-9">
 
-        {events &&
-        events.map(event => (
-                <div key={event._id} className="card-body">
-                    EventName : {event.name} <br/>
-                    Description : {event.description}<br/>
-                    Location : {event.location} <br/>
-                    Date : {eventDate(parseInt(event.date))}<br/>
-                    Fee : ${event.fee}<br/>
-                </div>
-            ))}
-                    
+            {events &&
+            events.map(event => (
+                   <>
+                    <div key={event._id} className="card-body">
+                        EventName : {event.name} <br/>
+                        Description : {event.description}<br/>
+                        Location : {event.location} <br/>
+                        Date : {eventDate(parseInt(event.date))}<br/>
+                        Fee : ${event.fee}<br/>
+                    </div>
+                    <ul>
+                        <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
+                        <li> Update Event </li>
+                        <li> Delete Event </li>
+                    </ul>
+                </>
+                ))}
+                        
         </div>
     )}
 };
