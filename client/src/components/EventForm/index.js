@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 
-// import { useMutation } from '@apollo/client';
-// import { ADD_EVENT } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_EVENT } from '../../utils/mutations';
 // import Auth from '../../utils/auth';
 
-function EventForm({addEvent}) {
+function EventForm() {
 
     const [eventInfo, seteventInfo] = useState({ name: '', description: '', date: '', location: '', fee: '' });
     const handleChange = (event) => {
         seteventInfo({...eventInfo,[event.target.name]: event.target.value});
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        addEvent(eventInfo);
-        seteventInfo({name:'',description: '', date: '', location: '', fee: ''})
+        try { 
+            await addEvent({
+                variables: {...eventInfo}
+            })
+        } catch (e) {
+            console.error(error);
+        }
+    
     }
+    const  [addEvent, {error}] = useMutation(ADD_EVENT)
+
     return (
         <div className='formstyle'>
             <form onSubmit={handleSubmit}class="row g-3">
