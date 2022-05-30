@@ -120,7 +120,7 @@ const resolvers = {
 
         // updates the event details
         // TODO: get it to not display null data
-        updateEvent: async (parent, {args, eventId}, context) => {
+        updateEvent: async (parent, args, context) => {
             // if (context.user) {
             //     try {
             //         // finds the event through event id and updates arguments
@@ -142,16 +142,8 @@ const resolvers = {
             // throw new AuthenticationError('You need to be logged in to update an event');
             if(context.user){
                 // finds the event through event id and updates arguments
-                const event = await Event.findByIdAndUpdate(eventId, {$set: args}, {new:true});
-                return console.log(event);
-                // set the updated event in the events array
-            //    return await User.findByIdAndUpdate(
-            //         { _id: context.user._id },
-            //        //  this may need to be changed to { $set: { events: event._id } }
-            //         { $set: { events: event } },
-            //         { new: true }
-            //     )
-               
+                const event = await Event.findByIdAndUpdate({_id: args.eventId}, {...args}, {new:true});
+                return event;
            }
            throw new AuthenticationError('You need to be logged in to update an event');
         },
