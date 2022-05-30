@@ -25,9 +25,9 @@ const  typeDefs = gql `
     }
 
     type Rsvp {
+        _id: ID
         attending: Boolean
         attendentId: User
-        eventId: ID
     }
 
     type Auth {
@@ -58,6 +58,6 @@ const  typeDefs = gql `
     `;
     
     // rsvp mutation in case we come back to it 
-    // confirmRsvp(eventId: ID!, attending: Boolean!): Event
+    // confirmRsvp(eventId: ID!, attending: Boolean): Event
 
     module.exports = typeDefs;

@@ -201,17 +201,17 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in to remove a Follower');
         }
-    }
+    },
     
     // flip the boolean for rsvpresolver
     // attending the event by changing the boolean to true
     // NOTE to front end. search by username and push id to back end
-    // confirmRsvp: async (parent, { eventId, attending }, context) => {
+    // confirmRsvp: async (parent, { rsvpId }, context) => {
     //     if(context.user){
     //         return await Event.findOneAndUpdate(
-    //             {_id: eventId},
-    //             {$push:{guestsRsvp: context.user._id} },
-    //             {attending: true},
+    //             {_id: rsvpId},
+    //             {guestsRsvp:{attending: true}},
+    //             // {attending: true},
     //             {new: true}
     //         )
     //     }
