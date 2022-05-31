@@ -3,6 +3,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
 import Carousel from '../components/Carousel';
+import MeetTeamComp from "../components/MeetTeam";
 
 function MeetTeam () {
     return (
@@ -14,7 +15,7 @@ function MeetTeam () {
                 <Carousel/>
                 <Nav/>
             </div>
-            <h1>Hi</h1>
+            <MeetTeamComp/>
             <Footer/>
         </div>
     )
