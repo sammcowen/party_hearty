@@ -44,7 +44,7 @@ An application that allows users to plan social events with ease!
   Follow these steps to properly install this application:
 
   Installation is not required for this application to be used. 
-  User can just go [Check out our deployed app live here](https://stormy-thicket-02132.herokuapp.com/)  and join the party hearty community by clicking on the nav bar and selecting 'SignUp'.
+  Users can just go [Check out our deployed app live here](https://stormy-thicket-02132.herokuapp.com/)  and join the party hearty community by clicking on the nav bar and selecting 'SignUp'.
   
 
 
