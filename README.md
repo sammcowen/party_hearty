@@ -38,7 +38,7 @@ An application that allows users to plan social events with ease!
  ![Party Hearty (8)](https://user-images.githubusercontent.com/92121595/171291393-1eddd88a-03b7-4e74-90cb-b64a38291d58.gif)
  
  
-  [Check out our deployed app live here].
+  [Check out our deployed app live here](https://stormy-thicket-02132.herokuapp.com/)
 
   ## Installation 💻
   Follow these steps to properly install this application:
