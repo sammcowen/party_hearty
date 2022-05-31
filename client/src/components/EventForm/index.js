@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 import { useMutation } from '@apollo/client';
 import { ADD_EVENT } from '../../utils/mutations';
 // import Auth from '../../utils/auth';
@@ -13,23 +14,24 @@ function EventForm() {
     const newFee = parseInt(eventInfo.fee);
     console.log(newFee);
 
-    const handleSubmit = async (event) => {
+    async function handleSubmit (event) {
         event.preventDefault();
         try { 
             await addEvent({
                 variables: { name: eventInfo.name, description: eventInfo.description, date: eventInfo.date, location: eventInfo.location, fee: newFee}
             });
-            
+            window.location.assign('/')
         } catch (e) {
             console.error(error);
         }
-    
-    }
+    } 
+
+
     const  [addEvent, {error}] = useMutation(ADD_EVENT)
 
     return (
         <div className='formstyle'>
-            <form onSubmit={handleSubmit}className="row g-3">
+            <form onSubmit={handleSubmit} className="row g-3">
                 <div className="col-md-6">
                     <label htmlFor="name" className="form-label">Event Name</label>
                     <input type="text" className="form-control" name="name" value = {eventInfo.name} onChange={handleChange} />
