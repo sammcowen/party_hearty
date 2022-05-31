@@ -2,22 +2,25 @@
 // event going to/invited
 // event hosted
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/client'
 import { Link } from 'react-router-dom';
 import {DELETE_EVENT} from '../../utils/mutations'
 
 function MeEventList ({ events }) {
 
+    // setting state for 
+    // const [eventsList, seteventsList] = useState({eventId:''});
+
     const [deleteEvent, {err}] = useMutation(DELETE_EVENT);
 
     const handleDeleteEvent = async (eventId) =>{
-        preventDefault();
        console.log(`eventId: ${eventId}`)
         try{
-            await deleteEvent({
+           await deleteEvent({
             variables: {eventId}
         });
+        // seteventsList(removedEvent);
         }
         catch(err){
             console.error(err);
