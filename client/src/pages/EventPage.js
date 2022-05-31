@@ -11,6 +11,7 @@ import { Map } from '../components/Map';
 // import { Details } from '../components/Details';
 import Carousel from '../components/Carousel'
 import Nav from '../components/Nav';
+import SendRsvp from '../components/SendRsvp';
 
 import '../index.css';
 
@@ -26,7 +27,6 @@ const EventPage = () => {
      });
   
     const event = data?.event || {};    
-
 // {dateFormat(event.date)}
     console.log(event);
 
@@ -59,8 +59,12 @@ const EventPage = () => {
                             <div>Event hosted on: <span> {eventDate(parseInt(event.date))} </span>  </div>
                             <div>Event hosted at: <span>{event.location}</span> </div>
                         </div>
-                            <Map location={event.location}/>
+                            <Map className='map' location={event.location}/>
+                            <br/>
+                            <SendRsvp eventId={event._id}/>
+
                         </div>
+
                         <br/>
                         <div>
                             <div className='description'>

@@ -88,4 +88,16 @@ export const DELETE_EVENT = gql`
       isPrivate
     }
   }
-`
+`;
+
+export const SEND_RSVP = gql`
+  mutation SendRsvp($attending: Boolean!, $invitedUserId: String, $eventId: String) {
+    sendRsvp(attending: $attending, invitedUserId: $invitedUserId, eventId: $eventId) {
+      _id
+      firstName
+      lastName
+      username
+      email
+    }
+  }
+`;

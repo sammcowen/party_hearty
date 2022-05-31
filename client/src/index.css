@@ -119,3 +119,9 @@ img {
 .center {
     text-align: center;
 }
+.map { 
+    margin-right: 20px;
+}
+.seachRsvp {
+    width: 215px;
+}
