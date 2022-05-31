@@ -58,9 +58,7 @@ const  typeDefs = gql `
         sendRsvp(attending: Boolean!, invitedUserId: String, eventId: String): User
         confirmRsvp(attending: Boolean!, eventId: String): Event
     }
-    `;
-    
-    // rsvp mutation in case we come back to it 
-    // confirmRsvp(eventId: ID!, attending: Boolean!): Event
+`;
 
-    module.exports = typeDefs;
+
+module.exports = typeDefs;
