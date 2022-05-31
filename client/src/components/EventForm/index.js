@@ -18,7 +18,8 @@ function EventForm() {
         try { 
             await addEvent({
                 variables: { name: eventInfo.name, description: eventInfo.description, date: eventInfo.date, location: eventInfo.location, fee: newFee}
-            })
+            });
+            
         } catch (e) {
             console.error(error);
         }
@@ -28,30 +29,30 @@ function EventForm() {
 
     return (
         <div className='formstyle'>
-            <form onSubmit={handleSubmit}class="row g-3">
-                <div class="col-md-6">
-                    <label htmlFor="name" class="form-label">Event Name</label>
-                    <input type="text" class="form-control" name="name" value = {eventInfo.name} onChange={handleChange} />
+            <form onSubmit={handleSubmit}className="row g-3">
+                <div className="col-md-6">
+                    <label htmlFor="name" className="form-label">Event Name</label>
+                    <input type="text" className="form-control" name="name" value = {eventInfo.name} onChange={handleChange} />
                 </div>
-                <div class="col-md-6">
-                    <label htmlFor="description" class="form-label">Event Description</label>
-                    <textarea name="description" class="form-control" value={eventInfo.description} onChange={handleChange} />
+                <div className="col-md-6">
+                    <label htmlFor="description" className="form-label">Event Description</label>
+                    <textarea name="description" className="form-control" value={eventInfo.description} onChange={handleChange} />
                 </div>
-                <div class="col-12">
-                    <label htmlFor="date" class="form-label">Event Date</label>
-                    <input type="date" class="form-control" name="date" placeholder="June 16" value={eventInfo.date} onChange={handleChange} />
+                <div className="col-12">
+                    <label htmlFor="date" className="form-label">Event Date</label>
+                    <input type="date" className="form-control" name="date" placeholder="June 16" value={eventInfo.date} onChange={handleChange} />
                 </div>
-                <div class="col-12">
-                    <label htmlFor="location" class="form-label">Event Location</label>
-                    <input type="text" class="form-control" name="location" placeholder="Vegas!" value={eventInfo.location}  onChange={handleChange}/>
+                <div className="col-12">
+                    <label htmlFor="location" className="form-label">Event Location</label>
+                    <input type="text" className="form-control" name="location" placeholder="Vegas!" value={eventInfo.location}  onChange={handleChange}/>
                 </div>
-                <div class="col-md-6">
-                    <label htmlFor="fee" class="form-label">Event Fee</label>
-                    <input type="text" class="form-control" name="fee" placeholder="100" value={eventInfo.fee} onChange={handleChange} />
+                <div className="col-md-6">
+                    <label htmlFor="fee" className="form-label">Event Fee</label>
+                    <input type="text" className="form-control" name="fee" placeholder="100" value={eventInfo.fee} onChange={handleChange} />
                 </div>
 
-                <div class="col-12">
-                    <button type="submit" class="rando btn">Create Event</button>
+                <div className="col-12">
+                    <button type="submit" className="rando btn">Create Event</button>
                 </div>
             </form>
         </div>

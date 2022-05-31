@@ -1,12 +1,14 @@
 import React from 'react';
-import MeetTeam from '../../pages/MeetTeam.js';
+import {Link} from 'react-router-dom';
+
+
 function Footer () {
 
 
     return (
         <div>
-            <div class="{sticky-bottom footer">
-                <a href={<MeetTeam/>}>Meet The Team</a>
+            <div className="sticky-bottom footer">
+                <Link to='/contributors/team'> Meet the Team </Link>
             </div>
         </div>
     );

@@ -38,8 +38,9 @@ export const ADD_USER = gql`
     }
   }
 `;
+
 export const ADD_EVENT = gql`
-  mutation AddEvent($name: String!, $description: String!, $date: String!, $location: String!, $fee: Int) {
+  mutation addEvent($name: String!, $description: String!, $date: String!, $location: String!, $fee: Int) {
     addEvent(name: $name, description: $description, date: $date, location: $location, fee: $fee) {
       name
       description
@@ -63,7 +64,8 @@ export const ADD_EVENT = gql`
   }
 `;
 
-export const REMOVE_EVENT = gql`
+// <<<<<<< HEAD
+export const DELETE_EVENT = gql`
   mutation removeEvent($eventId: ID!) {
     removeEvent(eventId:$eventId) {
       name
@@ -80,10 +82,10 @@ export const REMOVE_EVENT = gql`
         attendentId {
           firstName
           lastName
-        }zA
+        }
         eventId
       }
       isPrivate
     }
   }
-`;
+`

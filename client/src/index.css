@@ -115,3 +115,7 @@ img {
     justify-content: space-between;
     width: auto;
 }
+
+.center {
+    text-align: center;
+}

@@ -8,22 +8,24 @@ import './style.css';
 
 // use leaflet to generate
 
-export const Map = () => {
+export const Map = (location) => {
     
-    let position = [21,12]
+    let position = [21,12];
+    
+    
 
-    function Geocoder({ address }) {
+    function Geocoder({ location }) {
       const map = useMap();
   
       ELG.geocode()
-        .text(address)
+        .text(location)
         .run((err, results, response) => {
           console.log(results.results[0].latlng);
           const { lat, lng } = results.results[0].latlng;
           map.setView([lat, lng], 12);
           L.marker([lat,lng]).addTo(map)
-            .bindPopup('Address placeholder')
-            .openPopup();
+            // .bindPopup({location})
+            // .openPopup();
         });
   
       return null
@@ -41,7 +43,7 @@ export const Map = () => {
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Geocoder address="200 California Hall, Berkeley, CA 94720" />
+        <Geocoder address = {location} />
         {/* <Marker position={position}>
                         <Popup>
                             Place holder for address
