@@ -9,17 +9,24 @@ import {DELETE_EVENT} from '../../utils/mutations'
 
 function MeEventList ({ events }) {
 
-    const [deleteEvent, {err}] = useMutation(DELETE_EVENT);
+    // setting state for 
+    // const [eventsList, seteventsList] = useState({eventId:''});
+
+    const [deleteEvent, {error}] = useMutation(DELETE_EVENT);
+    
+
+
 
     const handleDeleteEvent = async (eventId) =>{
        console.log(`eventId: ${eventId}`)
         try{
-            await deleteEvent({
+           await deleteEvent({
             variables: {eventId}
-        })
+        });
+        // seteventsList(removedEvent);
         }
         catch(err){
-            console.error(err);
+            console.error(error);
         }
     }
 
@@ -37,6 +44,7 @@ function MeEventList ({ events }) {
             {events &&
             events.map(event => (
                    <>
+                   <form>
                     <div key={event._id} className="card-body">
                         EventName : {event.name} <br/>
                         Description : {event.description}<br/>
@@ -47,8 +55,10 @@ function MeEventList ({ events }) {
                     <ul>
                         <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
                         <li> <Link to={`/event/update/${event._id}`}> Update Event </Link> </li>
-                        <button onClick = {()=> handleDeleteEvent(event._id)}> Delete Event </button>
+                        <li> Update Event </li>
+                        <button type='submit' className={event._id} onClick={()=> handleDeleteEvent(event._id)}> Delete Event </button>
                     </ul>
+                    </form>
                 </>
                 ))}
                         

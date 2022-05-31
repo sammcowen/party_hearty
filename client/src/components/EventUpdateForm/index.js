@@ -33,7 +33,7 @@ function EventUpdateForm() {
     const newFee = parseInt(eventInfo.fee);
     console.log(newFee);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (eventId) => {
         event.preventDefault();
         try { 
             await updateEvent({
