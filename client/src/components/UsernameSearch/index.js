@@ -3,18 +3,18 @@ import React, { useState } from 'react';
 function UsernameSearch() {
 
     
-    const [searchQuery, setSearchQuery] = useState('');
-    const searchUserPage = () => {
-        window.location.replace('/')
-    };
+    const [searchUsername, setSearchUsername] = useState({name:''});
+
 
     const handleChange = (search) => {
-        setSearchQuery({...searchQuery,[search.target.name]: search.target.value });
+        const { name, value } = search.target;
+        setSearchUsername({...searchUsername, [name]: value, });
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         try {
-            await searchUserPage();
+            await window.location.assign(`/username/${searchUsername.name}`);
             
         } catch (error) {
             console.log(error)
@@ -24,8 +24,8 @@ function UsernameSearch() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" className='' name="username" placeholder='Input Username' 
-                        value={searchQuery.name} onChange={handleChange} />
+                <input type="text" className='' name="name" placeholder='Input Username' 
+                         onChange={handleChange} />
                 <button type='submit' className=''>Search</button>
             </form>
         </div>
