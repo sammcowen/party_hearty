@@ -32,7 +32,10 @@ An application that allows users to plan social events with ease!
   Party_Hearty is an application that allows users to signup and create events they can post on their profile. They can create an event with details , charge fees, and   invite their followers. Followers can rsvp on the web application as well . 
   
   ## Demo 📽
- Below is a demo of our app in mobile view
+ 
+ Below is a demo of a user logged in and creating an event!
+ 
+ ![Party Hearty (8)](https://user-images.githubusercontent.com/92121595/171291393-1eddd88a-03b7-4e74-90cb-b64a38291d58.gif)
  
  
   [Check out our deployed app live here].
