@@ -78,7 +78,6 @@ export const DELETE_EVENT = gql`
   }
 
 `;
-
 // guests {
 //   firstName
 //   lastName
