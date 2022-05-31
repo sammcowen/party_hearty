@@ -23,6 +23,7 @@ import HomePageUser from './pages/HomePageUser';
 import UserProfile from './pages/UserProfile';
 
 import Auth from './utils/auth'
+import EventUpdatePage from './pages/EventUpdatePage';
 
 
 
@@ -95,6 +96,10 @@ function App() {
               <Route
                 path="/event/:id"
                 element={<EventPage />}
+              />
+              <Route
+                path='/event/update/:id'
+                element={<EventUpdatePage/>}
               />
               <Route
                 path='/contributors/team'

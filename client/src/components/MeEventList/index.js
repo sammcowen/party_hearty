@@ -54,6 +54,7 @@ function MeEventList ({ events }) {
                     </div>
                     <ul>
                         <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
+                        <li> <Link to={`/event/update/${event._id}`}> Update Event </Link> </li>
                         <li> Update Event </li>
                         <button type='submit' className={event._id} onClick={()=> handleDeleteEvent(event._id)}> Delete Event </button>
                     </ul>

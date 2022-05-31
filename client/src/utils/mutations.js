@@ -56,14 +56,15 @@ export const ADD_EVENT = gql`
 //   firstName
 //   lastName
 // }
-
-// <<<<<<< HEAD
 // guestsRsvp {
 //   attending
 //   attendentId {
 //     firstName
 //     lastName
 //   }
+//   eventId
+// }
+
 export const DELETE_EVENT = gql`
   mutation removeEvent($eventId: ID!) {
     removeEvent(eventId:$eventId) {
@@ -87,3 +88,23 @@ export const DELETE_EVENT = gql`
 //     firstName
 //     lastName
 //   }
+//   eventId
+// }
+
+export const UPDATE_EVENT = gql`
+mutation updateEvent($eventId: ID!){
+  updateEvent(eventId: $eventId){
+    _id
+    name
+    description
+    fee
+    date
+    location
+
+    isPrivate
+  }
+}
+`;
+
+// guests
+// guestsRsvp
