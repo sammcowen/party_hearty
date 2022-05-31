@@ -79,3 +79,21 @@ mutation removeEvent($eventId: ID!){
   }
 }
 `;
+
+export const UPDATE_EVENT = gql`
+mutation updateEvent($eventId: ID!){
+  updateEvent(eventId: $eventId){
+    _id
+    name
+    description
+    fee
+    date
+    location
+
+    isPrivate
+  }
+}
+`;
+
+// guests
+// guestsRsvp
