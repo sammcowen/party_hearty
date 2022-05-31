@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import Carousel from '../components/Carousel';
 import MeEventList from '../components/MeEventList';
 
+
 const HomePageUser = () => {
 
     const { username: userParam } = useParams();
@@ -30,12 +31,15 @@ const HomePageUser = () => {
             <Carousel/>
             <Nav/>
             <h1>Hello {me.username} 🎉</h1>
-
+            
             <div className='homestep'>
                 <h2>Your upcoming events..</h2>
+                <a href={'/EventFormPage'}><button class="rando">Create New Event!</button></a>
                 <MeEventList
                     events={me.events}
-                />                
+            
+                />    
+                       
             </div>
         <Footer/>
         </>
