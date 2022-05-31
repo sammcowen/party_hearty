@@ -83,29 +83,15 @@ userSchema.pre('save', async function(next) {
 
 userSchema.pre('findOneAndUpdate', async function(next) {
 
-    const { _id  } = this._conditions; 
-
-    console.log(typeof(_id))
-    if (typeof( _id ) === 'string') {
-        const user = await User.findOne();
-        const oldPassword = user.password;
-        
-        let newPassword = this._update.password;
-            if (oldPassword === newPassword) {
-                next();
-            }
-    
+    if (this._update.password) {
         const saltRounds = 10;
-    
         this._update.password = await bcrypt.hash(this._update.password, saltRounds);
         next();
-    }
-    else if (typeof( _id ) === 'object') {
-        next();
-    }
+    };
+    
+    next();
 
-
-})
+});
 
 // compare the incoming password with the hashed password
 userSchema.methods.isCorrectPassword = async function(password) {

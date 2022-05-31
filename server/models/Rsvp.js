@@ -8,20 +8,16 @@ const rsvpSchema = new Schema(
         attending: {
             type: Boolean,
             default: false,
-            require: true
+            required: true
         },
-        attendent: [ 
-            {
-                type: Schema.Types.ObjectId,
-                ref: "User"
-            }
-         ],
-        eventId: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Event"
-            }
-        ]
+        invitedUserId: {
+            type: String,
+            required: true
+        },
+        eventId: {
+            type: String,
+            required: true,
+        }
     }
 )
 
