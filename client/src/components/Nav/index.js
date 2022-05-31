@@ -24,11 +24,7 @@ function Nav () {
           <li className="">
                 <UsernameSearch/>
           </li>
-          <li className="">
-            <Link to='/eventformpage'>
-              Create Event
-            </Link>
-          </li>
+     
           <li> <a href='/' onClick={() => Auth.logout()}> Logout </a></li>
         </ul>
       );
@@ -61,7 +57,7 @@ function Nav () {
   return (
       <>
          
-              <button className=" rando btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Nav</button>
+              <button className=" rando btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i class="fas fa-bars"></i></button>
 
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header">
