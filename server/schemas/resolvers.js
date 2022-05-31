@@ -126,9 +126,7 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in to add a guest')
         },
-
         // updates the event details
-        // TODO: get it to not display null data
         updateEvent: async (parent, args, context) => {
             if(context.user){
                 // finds the event through event id and updates arguments
@@ -205,7 +203,6 @@ const resolvers = {
                             {invitesRecieved: RSVP },
                             {new: true}
                         ).populate('followers').populate('following').populate('invitesRecieved')
-                        console.log(invitedUser)
                         
                         return invitedUser;
                     } catch (e) {
@@ -219,8 +216,20 @@ const resolvers = {
                   return;
               }
           }
-            throw new AuthenticationError('You need to be logged in to send an RSVP')
-
+            throw new AuthenticationError('You need to be logged in to send an RSVP');
+        },
+        confirmRsvp: async (parent, args, context) => {
+            if(context.user){
+                try {
+                    const reservedRSVP = await Rsvp.findOneAndUpdate(
+                        {invitedUserId: context.user._id, eventId: args.eventId},
+                        {attending: args.attending});
+                    return reservedRSVP;
+                } catch (e) {
+                    console.error(e)
+                }
+            }
+            throw new AuthenticationError('You need to be logged in to confirm an RSVP')
         }
     },
     User: {
@@ -231,24 +240,21 @@ const resolvers = {
                 throw new Error(e);
             }
         }
-    }
-    
+    },
+    Event: {
+        confirmedRsvps: async (root) => {
+            try {
+                const RSVPs =await Rsvp.find({eventId: root._id})
+                const confirmed = RSVPs.filter((RSVP) => { 
+                    return RSVP.attending === true;
+                });
 
-    
-    // flip the boolean for rsvpresolver
-    // attending the event by changing the boolean to true
-    // NOTE to front end. search by username and push id to back end
-    // confirmRsvp: async (parent, { eventId, attending }, context) => {
-    //     if(context.user){
-    //         return await Event.findOneAndUpdate(
-    //             {_id: eventId},
-    //             {$push:{guestsRsvp: context.user._id} },
-    //             {attending: true},
-    //             {new: true}
-    //         )
-    //     }
-    //     throw new AuthenticationError('You need to be logged');
-    // }
+                return confirmed;
+            } catch (e) {
+                throw new Error(e);
+            }
+        }
+    }
 }
 
 
