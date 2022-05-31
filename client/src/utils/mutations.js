@@ -47,24 +47,23 @@ export const ADD_EVENT = gql`
       fee
       date
       location
-      # guests {
-      #   firstName
-      #   lastName
-      # }
-      # guestsRsvp {
-      #   attending
-      #   attendentId {
-      #     firstName
-      #     lastName
-      #   }
-      #   eventId
-      # }
       isPrivate
     }
   }
 `;
 
+// guests {
+//   firstName
+//   lastName
+// }
 
+// <<<<<<< HEAD
+// guestsRsvp {
+//   attending
+//   attendentId {
+//     firstName
+//     lastName
+//   }
 export const DELETE_EVENT = gql`
   mutation removeEvent($eventId: ID!) {
     removeEvent(eventId:$eventId) {
@@ -73,19 +72,18 @@ export const DELETE_EVENT = gql`
       fee
       date
       location
-      # guests {
-      #   firstName
-      #   lastName
-      # }
-      # guestsRsvp {
-      #   attending
-      #   attendentId {
-      #     firstName
-      #     lastName
-      #   }
-      #   eventId
-      # }
       isPrivate
     }
   }
-`
+
+`;
+// guests {
+//   firstName
+//   lastName
+// }
+// guestsRsvp {
+//   attending
+//   attendentId {
+//     firstName
+//     lastName
+//   }
