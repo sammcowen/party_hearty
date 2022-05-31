@@ -108,3 +108,15 @@ mutation updateEvent($eventId: ID!){
 
 // guests
 // guestsRsvp
+
+export const SEND_RSVP = gql`
+  mutation SendRsvp($attending: Boolean!, $invitedUserId: String, $eventId: String) {
+    sendRsvp(attending: $attending, invitedUserId: $invitedUserId, eventId: $eventId) {
+      _id
+      firstName
+      lastName
+      username
+      email
+    }
+  }
+`;
