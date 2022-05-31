@@ -29,7 +29,7 @@ An application that allows users to plan social events with ease!
   For more information please visit the [license description](https://choosealicense.com/licenses/mit/).
 
   ## Description ℹ
-  Party_Hearty is an application that allows users to signup and create events they can post on their profile. They can create an event with details , charge fees, and   invite their followers. Followers can rsvp on the web application as well . 
+  Party_Hearty is an application that allows users to signup and create events that they can post on their profile page.  They can create an event with details ,         charge fees, and   invite their followers.Users can create , update and delete events on their page.  Followers can rsvp on the web application as well . 
   
   ## Demo 📽
  
@@ -44,7 +44,7 @@ An application that allows users to plan social events with ease!
   Follow these steps to properly install this application:
 
   Installation is not required for this application to be used. 
-  User can just go to the link found in [Demo](#Demo) section and join the party hearty community by clicking on the nav bar and selecting 'SignUp'.
+  User can just go to the link found in [Demo section](#Demo📽️)  and join the party hearty community by clicking on the nav bar and selecting 'SignUp'.
   
 
 
