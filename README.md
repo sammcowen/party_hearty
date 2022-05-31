@@ -43,7 +43,9 @@ An application that allows users to plan social events with ease!
   ## Installation 💻
   Follow these steps to properly install this application:
 
-  1. Clone the repo from github
+  Installation is not required for this application to be used. 
+  User can just go to the link found in [Demo](#Demo) section and join the party hearty community by clicking on the nav bar and selecting 'SignUp'.
+  
 
 
   ## Usage 🔎
