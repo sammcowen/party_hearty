@@ -9,13 +9,13 @@ export const QUERY_USERS = gql `
             username
             email
             events {
-                host
                 _id
                 name
                 description
                 fee
                 date
                 location
+                host
 
             }
         }
@@ -59,14 +59,13 @@ export const QUERY_ALL_USERS = gql `
             email
             
             events {
-                host
                 _id
                 name
                 description
                 fee
                 date
                 location
-                
+                host
             }
         }
     }
@@ -102,13 +101,13 @@ export const QUERY_ALL_USERS = gql `
 export const QUERY_EVENTS = gql `
     query events($username:String){
         events(username: $username){
-            host
             _id
             name
             description
             fee
             date
             location
+            host
 
         }
     }
@@ -131,13 +130,14 @@ export const QUERY_EVENTS = gql `
 export const QUERY_EVENT = gql `
     query event($id: ID!) {
         event(_id: $id) {
-            host
             _id
             name
             description
             fee
             date
             location
+            host
+         
         }
     }
 `;

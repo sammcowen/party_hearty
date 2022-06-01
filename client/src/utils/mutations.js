@@ -115,16 +115,3 @@ export const SEND_RSVP = gql`
     }
   }
 `;
-
-export const ADD_GUEST = gql `
-mutation Mutation($guestUsername: String!, $eventId: ID!) {
-  addGuest(guestUsername: $guestUsername, eventId: $eventId) {
-    _id
-    name
-    description
-    fee
-    date
-    location
-  }
-}
-`

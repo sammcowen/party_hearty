@@ -1,17 +1,18 @@
 import React from 'react';
 import './style.css';
 
+// list of guest array
+// icon to have guest mark as pending/going/not going/ unsure
+// list of particpants next to the nav
 
-export const ParticipantList = (guests) => {
-
-    // const {guests} = props;
-
+export const ParticipantList = () => {
     console.log(guests);
-    
+
     if(!guests.length){
         return <h3>No invites recieved.</h3>
     }else {
- 
+
+
     return (
         <div className='guest-list'>
             <h2>Guest List</h2>
@@ -27,6 +28,15 @@ export const ParticipantList = (guests) => {
                 </>
             ))}
             </ul>
+            {/* 
+            {state.guests.length ? (
+                <div>
+                    {filterGuest().map((User))}
+                </div>
+            )}
+            */}
         </div>
     )}
-}
+};
+
+export default ParticipantList
