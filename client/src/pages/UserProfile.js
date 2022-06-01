@@ -1,22 +1,22 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_USERS } from '../utils/queries';
 
 
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Carousel from '../components/Carousel';
-import MeEventList from '../components/MeEventList';
+import UserEventList from '../components/MeEventList';
 
-const HomePageUser = () => {
+const UserProfile = () => {
 
     const { username: userParam } = useParams();
-    const { loading, data } = useQuery(QUERY_ME, {
+    const { loading, data } = useQuery(QUERY_USERS, {
         variables: { username: userParam },
     });
 
-    const me = data?.me || {};
+    const user = data?.user || {};
 
     if (loading) {
         return <div>Loading...</div>;
@@ -29,12 +29,12 @@ const HomePageUser = () => {
             </div>
             <Carousel/>
             <Nav/>
-            <h1>Hello {me.username} 🎉</h1>
+            <h1>Welcome to {user.username}'s page 🎉</h1>
 
             <div className='homestep'>
-                <h2>Your upcoming events..</h2>
-                <MeEventList
-                    events={me.events}
+                <h2>{user.username} upcoming events..</h2>
+                <UserEventList
+                    events={user.events}
                 />                
             </div>
         <Footer/>
@@ -42,4 +42,4 @@ const HomePageUser = () => {
     )
 }
 
-export default HomePageUser;
+export default UserProfile;

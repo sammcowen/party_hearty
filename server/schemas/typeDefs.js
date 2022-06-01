@@ -10,6 +10,7 @@ const  typeDefs = gql `
         followers: [User]
         following: [User]
         events: [Event]
+        invitesRecieved: [Rsvp]
     }
 
     type Event {
@@ -20,14 +21,14 @@ const  typeDefs = gql `
         date: String
         location: String
         guests: [User]
-        guestsRsvp: [Rsvp]
         isPrivate: Boolean
+        confirmedRsvps: [Rsvp]
     }
 
     type Rsvp {
         attending: Boolean
-        attendentId: User
-        eventId: ID
+        invitedUserId: String
+        eventId: String
     }
 
     type Auth {
@@ -50,10 +51,12 @@ const  typeDefs = gql `
         addEvent(name: String!, description: String!, date: String!, location: String!, fee: Int): Event
         addFollower (followerId: ID!): User
         addGuest(guestId: ID!, eventId: ID!): Event 
-        updateEvent(eventId: ID!, name: String, description: String, date: String, location: String, fee: Int): Event
+        updateEvent(eventId: ID!, name: String, description: String, date: String, location: String, fee: Int, isPrivate: Boolean): Event
         removeGuest(guestId: ID!, eventId: ID!): Event
         removeEvent(eventId: ID!): Event
         removeFollowers(followersId: ID!): User
+        sendRsvp(attending: Boolean!, invitedUserId: String, eventId: String): User
+        confirmRsvp(attending: Boolean!, eventId: String): Event
     }
     `;
     
