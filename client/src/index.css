@@ -11,6 +11,7 @@ body {
     background-color: black !important;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color:whitesmoke !important;
+    min-height:100vh;
 
 }
 img {
@@ -46,14 +47,15 @@ img {
     position:fixed;
     left:0px;
     bottom:0px;
-    height:30px;
     width:100%;
-    z-index: 999;
     
 
 }
 footer a {
     color:black !important;
+}
+.fix {
+    padding-bottom:50px;
 }
 .formstyle {
     border:2px solid #b026ff;
@@ -66,6 +68,8 @@ footer a {
     align-items: center;
     justify-content: center;
     margin-top: 25px;
+    padding-bottom:50px;
+
 }
 .rando {
     background-color:#b026ff !important;
@@ -80,7 +84,21 @@ footer a {
     
 
 }
+/* .header {
+    background-image: url('./assets/image.png');
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    height:300px;
+    background-size: cover;
 
+}
+.header h1 {
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+} */
 .text {
     display:flex;
     flex-direction:row;

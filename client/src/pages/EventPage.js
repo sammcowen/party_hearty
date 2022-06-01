@@ -77,7 +77,7 @@ console.log(eventId);
 
                         <br/>
                         <div>
-                            <div className='description'>
+                            <div className='description fix'>
                                <p> Description {event.description} </p>
                             </div>
                         </div>      
