@@ -249,7 +249,7 @@ const resolvers = {
                     return RSVP.attending === true;
                 });
 
-                return confirmed;
+                return RSVPs;
             } catch (e) {
                 throw new Error(e);
             }
