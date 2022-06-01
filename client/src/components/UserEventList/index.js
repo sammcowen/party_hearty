@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function UserEventList ({ events }) {
+    
 
     if (!events.length) {
         return <h3>No Events Yet</h3>;
@@ -27,7 +28,7 @@ function UserEventList ({ events }) {
                     </ul>
                     </form>
                 </>
-                ))}
+            ))}
                         
         </div>
     )}
