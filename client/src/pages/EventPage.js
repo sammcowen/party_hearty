@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_EVENT } from '../utils/queries';
+import Auth from '../utils/auth'
+
 
 // import { EventName } from '../components/EventName';
 // import { EventDiscription } from "../components/EventDiscription";
@@ -47,12 +49,7 @@ console.log(eventId);
                     <div className='left'>
                     <div className='guest-list'>
                   <h2>Guest List</h2>
-                        <ul>
-                            <li>bob</li>
-                            <li> tom</li>
-                            <li>tiffany</li>
-                            <li>jacob</li>
-                        </ul>
+                       {/* <ParticpantList /> */}
                 {/* 
                 {state.guests.length ? (
                     <div>
@@ -65,7 +62,7 @@ console.log(eventId);
                     <div className='right'>
                         <div className='container justify-between'>
                         <div className="detail-box">
-                            <div>Event hosted by: <span>Placeholder Username </span> </div>
+                            <div>Event hosted by: <span> {event.host} </span> </div>
                             <div>Event hosted on: <span> {eventDate(parseInt(event.date))} </span>  </div>
                             <div>Event hosted at: <span>{event.location}</span> </div>
                             <div>Event fee: $<span>{event.fee}</span></div>
