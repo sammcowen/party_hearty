@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_EVENT } from '../utils/queries';
 
+import Auth from '../utils/auth'
 import { Map } from '../components/Map';
-
 import Header from '../components/Header';
 import SendRsvp from '../components/SendRsvp';
 
@@ -32,8 +32,9 @@ console.log(eventId);
 
     if (loading) {
         return <div>Loading...</div>;
-      }
+    }
 
+    console.log(event)
     return (
         <>
             <Header/>
@@ -54,13 +55,13 @@ console.log(eventId);
                         </div>
                             <Map className='map' location={event.location}/>
                             <br/>
-                            <SendRsvp eventId={event._id}/>
+                            {Auth.loggedIn && (<SendRsvp eventId={event._id}/>)}
 
                         </div>
 
                         <br/>
                         <div>
-                            <div className='description'>
+                            <div className='description fix'>
                                <p> Description {event.description} </p>
                             </div>
                         </div>      

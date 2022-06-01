@@ -23,7 +23,7 @@ function UserEventList ({ events }) {
                         Location : {event.location} <br/>
                         Date : {eventDate(parseInt(event.date))}<br/>
                     </div>
-                    <ul>
+                    <ul key={event._id}>
                         <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
                     </ul>
                     </form>

@@ -29,18 +29,25 @@ An application that allows users to plan social events with ease!
   For more information please visit the [license description](https://choosealicense.com/licenses/mit/).
 
   ## Description ℹ
-  Party_Hearty is an application that allows users to signup and create events they can post on their profile. They can create an event with details , charge fees, and   invite their followers. Followers can rsvp on the web application as well . 
+  Party_Hearty is an application that allows users to signup and create events that they can post on their profile page.  They can create an event with details ,         charge fees, and   invite their followers.Users can create , update and delete events on their page.  Followers can rsvp on the web application as well . 
+  
+  This application was built with MongodDB, Express.js, React ,  Node and GarphQL. The application also utilizes Material UI and React Bootstrap for styling on the front end. 
   
   ## Demo 📽
- Below is a demo of our app in mobile view
+ 
+ Below is a demo of a user logged in and creating an event!
+ 
+ ![Party Hearty (8)](https://user-images.githubusercontent.com/92121595/171291393-1eddd88a-03b7-4e74-90cb-b64a38291d58.gif)
  
  
-  [Check out our deployed app live here].
+  [Check out our deployed app live here](https://stormy-thicket-02132.herokuapp.com/)
 
   ## Installation 💻
   Follow these steps to properly install this application:
 
-  1. Clone the repo from github
+  Installation is not required for this application to be used. 
+  Users can just go [Check out our deployed app live here](https://stormy-thicket-02132.herokuapp.com/)  and join the party hearty community by clicking on the nav bar and selecting 'SignUp'.
+  
 
 
   ## Usage 🔎

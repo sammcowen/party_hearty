@@ -17,6 +17,9 @@ const rsvpSchema = new Schema(
         eventId: {
             type: String,
             required: true,
+        },
+        username: {
+            type: String,
         }
     }
 )

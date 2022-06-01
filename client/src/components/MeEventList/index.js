@@ -39,9 +39,8 @@ function MeEventList ({ events }) {
 
             {events &&
             events.map(event => (
-                   <>
-                   <form>
-                    <div key={event._id} className="card-body">
+                   <form key={event._id}>
+                    <div  className="card-body">
                         EventName : {event.name} <br/>
                         Location : {event.location} <br/>
                         Date : {eventDate(parseInt(event.date))}<br/>
@@ -52,8 +51,9 @@ function MeEventList ({ events }) {
                         <button type='submit' className={event._id} onClick={()=> handleDeleteEvent(event._id)}> Delete Event </button>
                     </ul>
                     </form>
-                </>
-                ))}       
+        
+                ))}
+                        
         </div>
     )}
 };

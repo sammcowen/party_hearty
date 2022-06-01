@@ -5,7 +5,6 @@ function UsernameSearch() {
     
     const [searchUsername, setSearchUsername] = useState({name:''});
 
-
     const handleChange = (search) => {
         const { name, value } = search.target;
         setSearchUsername({...searchUsername, [name]: value, });
@@ -13,13 +12,18 @@ function UsernameSearch() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        // if(searchUsername.name){
         try {
             await window.location.assign(`/username/${searchUsername.name}`);
             
         } catch (error) {
             console.log(error)
         }
+        // } else {
+        //     window.location.assign(`/username/*`);
+        // }
     };
+
 
     return (
         <div>

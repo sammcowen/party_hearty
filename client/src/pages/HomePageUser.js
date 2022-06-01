@@ -11,7 +11,7 @@ import InviteList from '../components/InviteList';
 
 
 const HomePageUser = () => {
-
+    
     const { username: userParam } = useParams();
     const { loading, data } = useQuery(QUERY_ME, {
         variables: { username: userParam },
@@ -26,18 +26,20 @@ const HomePageUser = () => {
     return (
         <>
            <Header/>
+
             <h1>Hello {me.username} 🎉</h1>
             
-            <div className='homestep'>
+            <div className='homestep fix'>
                 <h2>Your upcoming events..</h2>
                 <a href={'/EventFormPage'}><button className="rando">Create New Event!</button></a>
-                <InviteList
+                 <InviteList 
                     allInvitesRecieved={me.invitesRecieved}
-                />
-                <MeEventList
+                /> 
+              <MeEventList
                     events={me.events}            
                 /> 
             </div>
+            
             <Footer/>
         </>
     )
