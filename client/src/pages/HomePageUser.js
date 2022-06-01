@@ -28,7 +28,7 @@ const HomePageUser = () => {
            <Header/>
             <h1>Hello {me.username} 🎉</h1>
             
-            <div className='homestep'>
+            <div className='homestep fix'>
                 <h2>Your upcoming events..</h2>
                 <a href={'/EventFormPage'}><button className="rando">Create New Event!</button></a>
                 <InviteList

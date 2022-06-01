@@ -40,8 +40,8 @@ function MeEventList ({ events }) {
             {events &&
             events.map(event => (
                    <>
-                   <form>
-                    <div key={event._id} className="card-body">
+                   <form key={event._id}>
+                    <div  className="card-body">
                         EventName : {event.name} <br/>
                         Location : {event.location} <br/>
                         Date : {eventDate(parseInt(event.date))}<br/>
