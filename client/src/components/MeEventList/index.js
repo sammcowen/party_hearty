@@ -13,7 +13,6 @@ function MeEventList ({ events }) {
     
 
 
-
     const handleDeleteEvent = async (eventId) =>{
        console.log(`eventId: ${eventId}`)
         try{
