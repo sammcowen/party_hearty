@@ -23,6 +23,7 @@ const  typeDefs = gql `
         guests: [User]
         isPrivate: Boolean
         confirmedRsvps: [Rsvp]
+        host: String
     }
 
     type Rsvp {

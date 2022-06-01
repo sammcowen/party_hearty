@@ -253,6 +253,12 @@ const resolvers = {
             } catch (e) {
                 throw new Error(e);
             }
+        },
+        host: async (root) => {
+            root.host = {
+                type: String
+            }
+            return root;
         }
     }
 }

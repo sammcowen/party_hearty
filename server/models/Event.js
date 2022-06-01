@@ -48,7 +48,7 @@ const eventSchema = new Schema(
     {
         toJSON: {
             virtuals: true,
-        }
+        } 
     }
 );
 
