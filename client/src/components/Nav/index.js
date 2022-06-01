@@ -57,7 +57,7 @@ function Nav () {
   return (
       <>
          
-              <button className=" rando btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i className=''="fas fa-bars"></i></button>
+              <button className=" rando btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i className="fas fa-bars"></i></button>
 
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header">
