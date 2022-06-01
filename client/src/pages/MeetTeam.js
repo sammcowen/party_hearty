@@ -1,20 +1,14 @@
 import React from "react";
-import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
 // import Carousel from '../components/Carousel';
 import MeetTeamComp from "../components/MeetTeam";
+import Header from "../components/Header";
 
 function MeetTeam () {
     return (
         <div>
-             <div>
-                <div className='text'>
-                    <h1 className="text">Party Hearty</h1>
-                </div>
-               
-                <Nav/>
-            </div>
+             <Header/>
             <MeetTeamComp/>
             <Footer/>
         </div>

@@ -56,15 +56,14 @@ export const ADD_EVENT = gql`
 //   firstName
 //   lastName
 // }
+
+// <<<<<<< HEAD
 // guestsRsvp {
 //   attending
 //   attendentId {
 //     firstName
 //     lastName
 //   }
-//   eventId
-// }
-
 export const DELETE_EVENT = gql`
   mutation removeEvent($eventId: ID!) {
     removeEvent(eventId:$eventId) {
@@ -88,23 +87,30 @@ export const DELETE_EVENT = gql`
 //     firstName
 //     lastName
 //   }
-//   eventId
-// }
 
 export const UPDATE_EVENT = gql`
-mutation updateEvent($eventId: ID!){
-  updateEvent(eventId: $eventId){
-    _id
+mutation UpdateEvent($eventId: ID!, $description: String, $date: String, $location: String, $fee: Int, $name: String) {
+  updateEvent(eventId: $eventId, description: $description, date: $date, location: $location, fee: $fee, name: $name) {
     name
     description
     fee
     date
     location
-
-    isPrivate
   }
 }
 `;
 
 // guests
 // guestsRsvp
+
+export const SEND_RSVP = gql`
+  mutation SendRsvp($attending: Boolean!, $invitedUserId: String, $eventId: String) {
+    sendRsvp(attending: $attending, invitedUserId: $invitedUserId, eventId: $eventId) {
+      _id
+      firstName
+      lastName
+      username
+      email
+    }
+  }
+`;

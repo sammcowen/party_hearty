@@ -1,6 +1,3 @@
-// list of evevnt
-// event going to/invited
-// event hosted
 
 import React from 'react';
 import { useMutation } from '@apollo/client'
@@ -14,7 +11,6 @@ function MeEventList ({ events }) {
 
     const [deleteEvent, {error}] = useMutation(DELETE_EVENT);
     
-
 
 
     const handleDeleteEvent = async (eventId) =>{
@@ -44,18 +40,15 @@ function MeEventList ({ events }) {
             {events &&
             events.map(event => (
                    <>
-                   <form>
-                    <div key={event._id} className="card-body">
+                   <form key={event._id}>
+                    <div  className="card-body">
                         EventName : {event.name} <br/>
-                        Description : {event.description}<br/>
                         Location : {event.location} <br/>
                         Date : {eventDate(parseInt(event.date))}<br/>
-                        Fee : ${event.fee}<br/>
                     </div>
                     <ul>
                         <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
                         <li> <Link to={`/event/update/${event._id}`}> Update Event </Link> </li>
-                        <li> Update Event </li>
                         <button type='submit' className={event._id} onClick={()=> handleDeleteEvent(event._id)}> Delete Event </button>
                     </ul>
                     </form>

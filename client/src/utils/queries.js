@@ -168,7 +168,11 @@ export const QUERY_ME = gql `
                 fee
                 date
                 location
-               
+            }
+            invitesRecieved {
+                attending
+                invitedUserId
+                eventId
             }
         }
     }

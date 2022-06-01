@@ -16,7 +16,6 @@ import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 import MeetTeam from './pages/MeetTeam';
 
-
 import './index.css';
 import EventFormPage from './pages/EventFormPage';
 import HomePageUser from './pages/HomePageUser';
@@ -113,7 +112,6 @@ function App() {
           </div>
         </Router>
       </ApolloProvider>
-
     </>
   );
 }
