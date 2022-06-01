@@ -7,8 +7,12 @@ import { QUERY_EVENT } from '../utils/queries';
 // import { EventName } from '../components/EventName';
 // import { EventDiscription } from "../components/EventDiscription";
 // import { ParticipantList } from '../components/ParticipantList';
-import { Map } from '../components/Map';
 // import { Details } from '../components/Details';
+
+import Auth from '../utils/auth'
+import { Map } from '../components/Map';
+import Carousel from '../components/Carousel'
+import Nav from '../components/Nav';
 import Header from '../components/Header';
 import SendRsvp from '../components/SendRsvp';
 
@@ -28,14 +32,14 @@ console.log(eventId);
   
     const event = data?.event || {};    
 // {dateFormat(event.date)}
-    console.log(event);
 
     const eventDate = (timestamp) => new Date(timestamp).toUTCString()
 
     if (loading) {
         return <div>Loading...</div>;
-      }
+    }
 
+    console.log(event)
     return (
         <>
             <Header/>
@@ -64,14 +68,14 @@ console.log(eventId);
                     <div className='right'>
                         <div className='container justify-between'>
                         <div className="detail-box">
-                            <div>Event hosted by: <span>Placeholder Username </span> </div>
+                            <div>Event hosted by: <span>{event.host} </span> </div>
                             <div>Event hosted on: <span> {eventDate(parseInt(event.date))} </span>  </div>
                             <div>Event hosted at: <span>{event.location}</span> </div>
                             <div>Event fee: $<span>{event.fee}</span></div>
                         </div>
                             <Map className='map' location={event.location}/>
                             <br/>
-                            <SendRsvp eventId={event._id}/>
+                            {Auth.loggedIn && (<SendRsvp eventId={event._id}/>)}
 
                         </div>
 
