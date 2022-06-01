@@ -12,9 +12,9 @@ function InviteList (allInvitesRecieved) {
     return (
         <div cassName ='card col-9'>
             {allInvitesRecieved &&
-            allInvitesRecieved.map(invitesRecieved =>(
+            allInvitesRecieved.map((invitesRecieved) =>(
                 <>
-                    <div>{invitesRecieved.attending}</div>
+                    <div key={invitesRecieved.index}>{invitesRecieved.attending}</div>
                 </>
             ))}
 
