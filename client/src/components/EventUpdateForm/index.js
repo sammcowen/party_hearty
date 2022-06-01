@@ -12,6 +12,8 @@ import { UPDATE_EVENT } from '../../utils/mutations';
 function EventUpdateForm() {
 
     const { id: eventId } = useParams();
+    const  [updateEvent, {error}] = useMutation(UPDATE_EVENT)
+
 
     const { loading, data } = useQuery(QUERY_EVENT, {
         variables: { id: eventId },
@@ -25,27 +27,27 @@ function EventUpdateForm() {
 
 
     // const [eventInfo, seteventInfo] = useState({ name: `${event.name}`, description: `${event.description}`, date: `${eventDate(parseInt(event.date))}`, location: `${event.location}`, fee: `${event.fee}` });
-    const [eventInfo, seteventInfo] = useState({ name: ``, description: ``, date: ``, location: ``, fee: `` });
+    const [eventInfo, setEventInfo] = useState({ name: ``, description: ``, date: ``, location: ``, fee: `` });
    
     const handleChange = (event) => {
-        seteventInfo({...eventInfo, [event.target.name]: event.target.value});
+        setEventInfo({...eventInfo, [event.target.name]: event.target.value});
     }
     const newFee = parseInt(eventInfo.fee);
     console.log(newFee);
 
-    const handleSubmit = async (eventId) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log({eventId: eventId ,description: eventInfo.description, date: eventInfo.date,  location: eventInfo.location, fee: newFee, name: eventInfo.name })
         try { 
             await updateEvent({
-                variables: { name: eventInfo.name, description: eventInfo.description, date: eventInfo.date, location: eventInfo.location, fee: newFee}
+                variables: {eventId: eventId ,description: eventInfo.description, date: eventInfo.date,  location: eventInfo.location, fee: newFee, name: eventInfo.name }
             });
-            
+            window.location.replace('/')
         } catch (e) {
             console.error(error);
         }
     
     }
-    const  [updateEvent, {error}] = useMutation(UPDATE_EVENT)
 
     if (loading) {
         return <div>Loading...</div>;
@@ -57,24 +59,24 @@ function EventUpdateForm() {
             <form onSubmit={handleSubmit}className="row g-3">
                 <div className="col-md-6">
                     <label htmlFor="name" className="form-label">Event Name</label>
-                    <input type="text" className="form-control" name="name" placeholder={`${event.name}`} value = {eventInfo.name} onChange={handleChange} />
+                    <input type="text" className="form-control" name="name" placeholder={`${event.name}`} value = {eventInfo.name} onChange={(event)=> setEventInfo({...eventInfo, name: event.target.value})} />
                 </div>
                 <div className="col-md-6">
                     <label htmlFor="description" className="form-label">Event Description</label>
-                    <textarea name="description" className="form-control" placeholder={`${event.description}`} value={eventInfo.description} onChange={handleChange} />
+                    <textarea name="description" className="form-control" placeholder={`${event.description}`} value={eventInfo.description} onChange={(event)=> setEventInfo({...eventInfo, description: event.target.value})} />
                 </div>
                 <div className="col-12">
                     <label htmlFor="date" className="form-label">Event Date</label>
-                    <input type="date" className="form-control" name="date" placeholder={`${eventDate(parseInt(event.date))}`} value={eventInfo.date} onChange={handleChange} />
+                    <input type="date" className="form-control" name="date" placeholder={`${eventDate(parseInt(event.date))}`} value={eventInfo.date} onChange={(event)=> setEventInfo({...eventInfo, date: event.target.value})} />
                 </div>
                 <div className="col-12">
                     <label htmlFor="location" className="form-label">Event Location</label>
-                    <input type="text" className="form-control" name="location" placeholder={`${event.location}`} value={eventInfo.location}  onChange={handleChange}/>
+                    <input type="text" className="form-control" name="location" placeholder={`${event.location}`} value={eventInfo.location}  onChange={(event)=> setEventInfo({...eventInfo, location: event.target.value})}/>
                 </div>
                 <div className="col-md-6">
                     <label htmlFor="fee" className="form-label">Event Fee</label>
-                    <input type="text" className="form-control" name="fee" placeholder={`${event.fee}`} value={eventInfo.fee} onChange={handleChange} />
-                </div>
+                    <input type="text" className="form-control" name="fee" placeholder={`${event.fee}`} value={eventInfo.fee} onChange={(event)=> setEventInfo({...eventInfo, fee: event.target.value})} />
+                </div> 
 
                 <div className="col-12">
                     <button type="submit" className="rando btn">Update Event</button>
