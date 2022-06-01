@@ -17,18 +17,23 @@ function UsernameSearch() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(searchUsername)
-        if(searchUsername.name){
-        try {
-           const userResult = await findByUser({
-               vatiables: {username: searchUsername.name}
-           })
-           if(userResult.ok){
-             window.location.assign(`/username/${searchUsername.name}`);
-           }else{window.location.assign(`/username/`);}
-        } catch (error) {
-            console.log(error)
-        } 
-        } 
+        if (searchUsername.name) {
+            try {
+                // used query to weigh username validity
+                const userResult = await findByUser({
+                    variables: { username: searchUsername.name }
+                })
+                // conditionally renders if the user data is valid
+                if (userResult.data.user != undefined) {
+                    window.location.assign(`/username/${searchUsername.name}`);
+                } else {
+                    // takes to a bad request page if username is not valid
+                    window.location.assign(`/username/`);
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
 
     };
 
