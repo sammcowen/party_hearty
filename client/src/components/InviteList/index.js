@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useLazyQuery, useMutation } from '@apollo/client';
 import { QUERY_EVENT } from '../../utils/queries';
 
@@ -40,8 +39,6 @@ function InviteList(props) {
     }
 
 
-
-
     return (
         <>
             {cardOpen && (
@@ -65,15 +62,5 @@ function InviteList(props) {
     )
 };
 
+
 export default InviteList;
-
-
-
-// {
-//     allInvitesRecieved &&
-//     allInvitesRecieved.map((invitesRecieved, i) => (
-//         <div key={i.toString()}>
-//             {invitesRecieved.attending.toString()}
-//         </div>
-//     ))
-// }

@@ -15,6 +15,7 @@ export const QUERY_USERS = gql `
                 fee
                 date
                 location
+                host
 
             }
         }
@@ -64,7 +65,7 @@ export const QUERY_ALL_USERS = gql `
                 fee
                 date
                 location
-                
+                host
             }
         }
     }
@@ -106,6 +107,7 @@ export const QUERY_EVENTS = gql `
             fee
             date
             location
+            host
 
         }
     }
@@ -134,6 +136,7 @@ export const QUERY_EVENT = gql `
             fee
             date
             location
+            host
          
         }
     }
