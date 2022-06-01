@@ -3,8 +3,9 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
-import Carousel from '../components/Carousel';
-import Nav from '../components/Nav';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -35,8 +36,7 @@ function Signup(props) {
 
   return (
     <>
-      <Carousel/>
-      <Nav />
+      <Header/>
        <div className="container my-1">
       
 
@@ -98,6 +98,7 @@ function Signup(props) {
         </div>
       </form>
     </div>
+    <Footer/>
     </>
   );
 }
