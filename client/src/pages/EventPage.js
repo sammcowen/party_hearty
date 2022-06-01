@@ -9,11 +9,11 @@ import { QUERY_EVENT } from '../utils/queries';
 // import { ParticipantList } from '../components/ParticipantList';
 import { Map } from '../components/Map';
 // import { Details } from '../components/Details';
-import Carousel from '../components/Carousel'
-import Nav from '../components/Nav';
+import Header from '../components/Header';
 import SendRsvp from '../components/SendRsvp';
 
 import '../index.css';
+import Footer from '../components/Footer';
 
 
 
@@ -38,13 +38,7 @@ const EventPage = () => {
 
     return (
         <>
-            <div>
-                <div className='text'>
-                    <h1 className="text">Party Hearty</h1>
-                </div>
-                <Carousel/>
-                <Nav/>
-            </div>
+            <Header/>
             <div>
                 <h1 className='center'> {event.name} </h1>
                 <br/>
@@ -58,6 +52,7 @@ const EventPage = () => {
                             <div>Event hosted by: <span>Placeholder Username </span> </div>
                             <div>Event hosted on: <span> {eventDate(parseInt(event.date))} </span>  </div>
                             <div>Event hosted at: <span>{event.location}</span> </div>
+                            <div>Event fee: $<span>{event.fee}</span></div>
                         </div>
                             <Map className='map' location={event.location}/>
                             <br/>
@@ -75,6 +70,7 @@ const EventPage = () => {
                 </div>
                 
             </div>
+            <Footer/>
         </>
     );
 };

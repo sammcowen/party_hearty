@@ -4,10 +4,9 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USERS } from '../utils/queries';
 
 
-import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import Carousel from '../components/Carousel';
-import UserEventList from '../components/MeEventList';
+import UserEventList from '../components/UserEventList';
+import Header from '../components/Header';
 
 const UserProfile = () => {
 
@@ -24,11 +23,7 @@ const UserProfile = () => {
 
     return (
         <>
-        <div className='text'>
-                <h1 className="text">Party Hearty</h1>
-            </div>
-            <Carousel/>
-            <Nav/>
+            <Header/>
             <h1>Welcome to {user.username}'s page 🎉</h1>
 
             <div className='homestep'>

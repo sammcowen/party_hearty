@@ -4,10 +4,9 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
 
-import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import Carousel from '../components/Carousel';
 import MeEventList from '../components/MeEventList';
+import Header from '../components/Header';
 
 
 const HomePageUser = () => {
@@ -25,23 +24,17 @@ const HomePageUser = () => {
 
     return (
         <>
-        <div className='text'>
-                <h1 className="text">Party Hearty</h1>
-            </div>
-            <Carousel/>
-            <Nav/>
+           <Header/>
             <h1>Hello {me.username} 🎉</h1>
             
             <div className='homestep'>
                 <h2>Your upcoming events..</h2>
                 <a href={'/EventFormPage'}><button class="rando">Create New Event!</button></a>
                 <MeEventList
-                    events={me.events}
-            
-                />    
-                       
+                    events={me.events}            
+                /> 
             </div>
-        <Footer/>
+            <Footer/>
         </>
     )
 }
