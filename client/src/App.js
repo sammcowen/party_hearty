@@ -88,6 +88,10 @@ function App() {
                 path="/EventFormPage"
                 element={<EventFormPage />}
               />
+                <Route
+                  path="/username/*"
+                  element={<NoMatch/>}
+                />
               <Route
                 path="/username/:username"
                 element={<UserProfile />}
