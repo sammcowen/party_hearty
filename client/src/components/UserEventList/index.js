@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function UserEventList ({ events }) {
+    
 
     if (!events.length) {
         return <h3>No Events Yet</h3>;
@@ -22,12 +23,12 @@ function UserEventList ({ events }) {
                         Location : {event.location} <br/>
                         Date : {eventDate(parseInt(event.date))}<br/>
                     </div>
-                    <ul>
+                    <ul key={event._id}>
                         <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
                     </ul>
                     </form>
                 </>
-                ))}
+            ))}
                         
         </div>
     )}
