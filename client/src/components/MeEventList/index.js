@@ -53,8 +53,7 @@ function MeEventList ({ events }) {
                     </ul>
                     </form>
                 </>
-                ))}
-                        
+                ))}       
         </div>
     )}
 };

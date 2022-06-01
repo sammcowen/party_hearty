@@ -4,16 +4,14 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_EVENT } from '../utils/queries';
 
-// import { EventName } from '../components/EventName';
-// import { EventDiscription } from "../components/EventDiscription";
-// import { ParticipantList } from '../components/ParticipantList';
 import { Map } from '../components/Map';
-// import { Details } from '../components/Details';
+
 import Header from '../components/Header';
 import SendRsvp from '../components/SendRsvp';
 
 import '../index.css';
 import Footer from '../components/Footer';
+import { ParticipantList } from '../components/ParticipantList';
 
 
 
@@ -27,7 +25,7 @@ console.log(eventId);
      });
   
     const event = data?.event || {};    
-// {dateFormat(event.date)}
+
     console.log(event);
 
     const eventDate = (timestamp) => new Date(timestamp).toUTCString()
@@ -44,27 +42,12 @@ console.log(eventId);
                 <br/>
                 <div className='container'>
                     <div className='left'>
-                    <div className='guest-list'>
-                  <h2>Guest List</h2>
-                        <ul>
-                            <li>bob</li>
-                            <li> tom</li>
-                            <li>tiffany</li>
-                            <li>jacob</li>
-                        </ul>
-                {/* 
-                {state.guests.length ? (
-                    <div>
-                        {filterGuest().map((User))}
-                    </div>
-                )}
-                */}
-                    </div>
+                        <ParticipantList guests={event.invitesRecieved}/>
                     </div>
                     <div className='right'>
                         <div className='container justify-between'>
                         <div className="detail-box">
-                            <div>Event hosted by: <span>Placeholder Username </span> </div>
+                            <div>Event hosted by: <span>  {event.host} </span> </div>
                             <div>Event hosted on: <span> {eventDate(parseInt(event.date))} </span>  </div>
                             <div>Event hosted at: <span>{event.location}</span> </div>
                             <div>Event fee: $<span>{event.fee}</span></div>

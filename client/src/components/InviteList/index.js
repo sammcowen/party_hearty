@@ -1,25 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+function InviteList (props) {
 
-function InviteList (allInvitesRecieved) {
-
-    console.log(allInvitesRecieved)
+    const {allInvitesRecieved} = props;
+    
     if(!allInvitesRecieved.length){
         return <h3>No invites recieved.</h3>
     }else {
-
+  
     return (
-        <div cassName ='card col-9'>
+        <div className ='card col-9'>
             {allInvitesRecieved &&
-            allInvitesRecieved.map(invitesRecieved =>(
+            allInvitesRecieved.map((invitesRecieved, i) =>(
                 <>
-                    <div>{invitesRecieved.attending}</div>
+                    <div key={i}>
+                    <p>
+                        {invitesRecieved.attending.toString()}
+                    </p>
+                    </div>
                 </>
             ))}
-
         </div>
     )}
 };
-
 export default InviteList;
