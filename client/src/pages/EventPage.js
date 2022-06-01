@@ -43,9 +43,24 @@ const EventPage = () => {
                 <h1 className='center'> {event.name} </h1>
                 <br/>
                 <div className='container'>
-                    {/* <div className='left'>
-                        <ParticipantList />
-                    </div> */}
+                    <div className='left'>
+                    <div className='guest-list'>
+                  <h2>Guest List</h2>
+                        <ul>
+                            <li>bob</li>
+                            <li> tom</li>
+                            <li>tiffany</li>
+                            <li>jacob</li>
+                        </ul>
+                {/* 
+                {state.guests.length ? (
+                    <div>
+                        {filterGuest().map((User))}
+                    </div>
+                )}
+                */}
+                    </div>
+                    </div>
                     <div className='right'>
                         <div className='container justify-between'>
                         <div className="detail-box">
