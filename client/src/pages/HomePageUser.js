@@ -29,7 +29,7 @@ const HomePageUser = () => {
             
             <div className='homestep'>
                 <h2>Your upcoming events..</h2>
-                <a href={'/EventFormPage'}><button class="rando">Create New Event!</button></a>
+                <a href={'/EventFormPage'}><button className="rando">Create New Event!</button></a>
                 <MeEventList
                     events={me.events}            
                 /> 
