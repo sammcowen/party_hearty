@@ -89,16 +89,13 @@ export const DELETE_EVENT = gql`
 //   }
 
 export const UPDATE_EVENT = gql`
-mutation updateEvent($eventId: ID!){
-  updateEvent(eventId: $eventId){
-    _id
+mutation UpdateEvent($eventId: ID!, $description: String, $date: String, $location: String, $fee: Int, $name: String) {
+  updateEvent(eventId: $eventId, description: $description, date: $date, location: $location, fee: $fee, name: $name) {
     name
     description
     fee
     date
     location
-
-    isPrivate
   }
 }
 `;

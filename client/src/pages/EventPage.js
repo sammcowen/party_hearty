@@ -20,7 +20,7 @@ import '../index.css';
 const EventPage = () => {
 
     const { id: eventId } = useParams();
-
+console.log(eventId);
     const { loading, data } = useQuery(QUERY_EVENT, {
         variables: { id: eventId },
      });
