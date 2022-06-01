@@ -33,6 +33,7 @@ export const ParticipantList = (props) => {
             {/* 
             {state.guests.length ? (
                 <div>
+                
                     {filterGuest().map((User))}
                 </div>
             )}
