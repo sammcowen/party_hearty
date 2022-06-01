@@ -6,7 +6,7 @@ const eventSchema = new Schema(
     {
         host: {
             type: String, 
-            trim: true
+            trim: true,
         },
         name: {
             type: String, 

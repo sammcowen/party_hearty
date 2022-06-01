@@ -16,6 +16,7 @@ const  typeDefs = gql `
     type Event {
         _id: ID
         name: String
+        host: String
         description: String
         fee: Int
         date: String
@@ -23,7 +24,6 @@ const  typeDefs = gql `
         guests: [User]
         isPrivate: Boolean
         confirmedRsvps: [Rsvp]
-        host: String
     }
 
     type Rsvp {
@@ -50,7 +50,7 @@ const  typeDefs = gql `
         login(email: String!, password: String!): Auth
         addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): Auth
         updateUser(firstName: String, lastName: String, username: String, email: String, password: String): User
-        addEvent(host:String, name: String!, description: String!, date: String!, location: String!, fee: Int): Event
+        addEvent(host: String, name: String!, description: String!, date: String!, location: String!, fee: Int): Event
         addFollower (followerId: ID!): User
         addGuest(guestId: ID!, eventId: ID!): Event 
         updateEvent(eventId: ID!, name: String, description: String, date: String, location: String, fee: Int, isPrivate: Boolean): Event
