@@ -245,11 +245,7 @@ const resolvers = {
         confirmedRsvps: async (root) => {
             try {
                 const RSVPs =await Rsvp.find({eventId: root._id})
-                const confirmed = RSVPs.filter((RSVP) => { 
-                    return RSVP.attending === true;
-                });
-
-                return confirmed;
+                return RSVPs;
             } catch (e) {
                 throw new Error(e);
             }

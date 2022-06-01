@@ -1,31 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLazyQuery, useMutation } from '@apollo/client';
+import { QUERY_EVENT } from '../../utils/queries';
 
 
-function InviteList (props) {
-    
-    const {allInvitesRecieved} = props;
-    console.log(allInvitesRecieved.length)
-    
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
+import ListItemText from '@mui/material/ListItemText';
 
-    if(!allInvitesRecieved.length){
-        return <h3>No invites recieved.</h3>
-    }else {
-    
-    allInvitesRecieved.forEach((invitesRecieved, i) => {
-        console.log(invitesRecieved, i);
-    });
+
+
+
+function InviteList(props) {
+    const [searchEvent, { loading, error, data}] = useLazyQuery(QUERY_EVENT);
+    const { allInvitesRecieved } = props;
+    const [cardOpen, setCardOpen] =  useState(false);
+
+    const handleClick = (event) => {
+        event.preventDefault();
+        setCardOpen(!cardOpen);
+        handleLoad();
+    }
+    console.log(cardOpen);
+
+    const handleLoad = async function (event, invite) {
+        console.log('im hit!')
+        try {
+            const rsvpEvent = await searchEvent({
+                variables: {
+                    _id: invite.eventId
+                }
+            });
+            return rsvpEvent;
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+
+
 
     return (
-        <div className ='card col-9'>
-            {allInvitesRecieved &&
-            allInvitesRecieved.map((invitesRecieved, i) =>(
-                    <div key={i.toString()}>
-                        {invitesRecieved.attending.toString()}
-                    </div>
-            ))}
-        </div>
-    )}
+        <>
+            {cardOpen && (
+                    <List  sx={{  width: '100%', maxWidth: 360, maxHeight: 500, bgcolor: 'background.paper', marginTop: 1}}>
+                        { allInvitesRecieved.map((invite, i) => (
+                        <ListItem className={'confirmRsvp'} key={{i}}>
+                            <ListItemText primary={`${invite.username}`} />
+                            <button>Confirm RSVP</button>
+                        </ListItem>
+                        ))}
+                    </List>
+                )}
+            <div className="invites">
+
+                <Badge sx={{marginTop: 2}} badgeContent={allInvitesRecieved.length} color="primary">
+                    <MailIcon onClick={handleClick} color='secondary'/>
+                </Badge>
+            </div>
+        </>
+
+    )
 };
 
 export default InviteList;
+
+
+
+// {
+//     allInvitesRecieved &&
+//     allInvitesRecieved.map((invitesRecieved, i) => (
+//         <div key={i.toString()}>
+//             {invitesRecieved.attending.toString()}
+//         </div>
+//     ))
+// }
