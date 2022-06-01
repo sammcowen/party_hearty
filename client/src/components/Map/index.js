@@ -8,13 +8,13 @@ import './style.css';
 
 // use leaflet to generate
 
-export const Map = (location) => {
+export const Map = (props) => {
     
     let position = [21,12];
     
-    
+    const { location } = props;
 
-    function Geocoder({ location }) {
+    function Geocoder({ address }) {
       const map = useMap();
   
       ELG.geocode()
