@@ -1,8 +1,7 @@
 import React from 'react';
-// import Jumbotron from '../components/Jumbotron';
-import Nav from '../components/Nav';
-import Carousel from '../components/Carousel';
+import Header from '../components/Header';
 import EventForm from '../components/EventForm';
+import Footer from '../components/Footer';
 
 const EventFormPage = () => {
     // const [events, updateEvent] =useState([]);
@@ -13,15 +12,15 @@ const EventFormPage = () => {
     // console.log(events)
     return (
         <div>
-            <Carousel></Carousel>
-            <Nav></Nav>
+            <Header/>
             <div className='text'>
             <h2>
                 Fill out the form below to get your next event started!
             </h2>
             </div>
             <EventForm />
-            </div>
+            <Footer/>
+        </div>
       
     );
 };

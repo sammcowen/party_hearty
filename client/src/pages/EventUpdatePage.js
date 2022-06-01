@@ -1,7 +1,7 @@
 import React from 'react';
 // import Jumbotron from '../components/Jumbotron';
-import Nav from '../components/Nav';
-import Carousel from '../components/Carousel';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import EventUpdateForm from '../components/EventUpdateForm';
 
 
@@ -14,15 +14,15 @@ const EventUpdatePage = () => {
     // console.log(events)
     return (
         <div>
-            <Carousel></Carousel>
-            <Nav></Nav>
+            <Header/>
             <div className='text'>
             <h2>
                 How would you like to update your event?
             </h2>
             </div>
             <EventUpdateForm />
-            </div>
+            <Footer/>
+        </div>
       
     );
 };
