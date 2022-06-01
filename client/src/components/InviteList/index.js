@@ -17,7 +17,7 @@ function InviteList (props) {
     });
 
     return (
-        <div cassName ='card col-9'>
+        <div className ='card col-9'>
             {allInvitesRecieved &&
             allInvitesRecieved.map((invitesRecieved, i) =>(
                     <div key={i.toString()}>
