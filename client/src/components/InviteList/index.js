@@ -12,21 +12,17 @@ function InviteList (props) {
         return <h3>No invites recieved.</h3>
     }else {
     
-    allInvitesRecieved.forEach(invitesRecieved => {
-        console.log(invitesRecieved);
+    allInvitesRecieved.forEach((invitesRecieved, i) => {
+        console.log(invitesRecieved, i);
     });
 
     return (
         <div cassName ='card col-9'>
             {allInvitesRecieved &&
             allInvitesRecieved.map((invitesRecieved, i) =>(
-                <>
-                    <div key={i}>
-                    <p>
+                    <div key={i.toString()}>
                         {invitesRecieved.attending.toString()}
-                    </p>
                     </div>
-                </>
             ))}
         </div>
     )}
