@@ -49,14 +49,18 @@ function SendRsvp(props) {
     const user = data?.user || {};
 
 
-    console.log(inviteOpen);
+    console.log(user.username);
+
     const handleSend = async (event) => {
+        const { username } = formState;
+
         try {
           const RSVP = await sendRsvp({
                 variables: {
                     attending: false,
                     invitedUserId: user._id,
-                    eventId: eventId
+                    eventId: eventId,
+                    username: username,
                 }
             })
             console.log(RSVP)

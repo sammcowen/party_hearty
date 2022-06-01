@@ -136,3 +136,11 @@ footer a {
 .seachRsvp {
     width: 215px;
 }
+/* .invites {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+} */
+.confirmRsvp {
+    color: black;
+}

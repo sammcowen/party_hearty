@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import {QUERY_ME} from '../../utils/queries'
 
 
 import { useMutation } from '@apollo/client';
@@ -7,18 +10,30 @@ import { ADD_EVENT } from '../../utils/mutations';
 
 function EventForm() {
 
-    const [eventInfo, seteventInfo] = useState({ name: '', description: '', date: '', location: '', fee: '' });
+    const { username: userParam } = useParams();
+    const { data } = useQuery(QUERY_ME, {
+        variables: { username: userParam },
+    });
+
+    const me = data?.me || {};
+
+
+    const [eventInfo, seteventInfo] = useState({ host:'', name: '', description: '', date: '', location: '', fee: '' });    
+    
     const handleChange = (event) => {
         seteventInfo({...eventInfo, [event.target.name]: event.target.value});
-    }
+    }; 
+    
     const newFee = parseInt(eventInfo.fee);
     console.log(newFee);
+
+    const hostName = me.username;
 
     async function handleSubmit (event) {
         event.preventDefault();
         try { 
             await addEvent({
-                variables: { name: eventInfo.name, description: eventInfo.description, date: eventInfo.date, location: eventInfo.location, fee: newFee}
+                variables: { host: hostName, name: eventInfo.name, description: eventInfo.description, date: eventInfo.date, location: eventInfo.location, fee: newFee}
             });
             window.location.assign('/')
         } catch (e) {
