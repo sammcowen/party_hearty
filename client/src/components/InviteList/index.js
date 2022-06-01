@@ -37,7 +37,7 @@ function InviteList(props) {
             console.log(e)
         }
     }
-
+console.log(allInvitesRecieved);
 
     return (
         <>

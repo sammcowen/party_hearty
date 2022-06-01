@@ -8,7 +8,7 @@ import Auth from '../utils/auth'
 
 // import { EventName } from '../components/EventName';
 // import { EventDiscription } from "../components/EventDiscription";
-// import { ParticipantList } from '../components/ParticipantList';
+import { ParticipantList } from '../components/ParticipantList';
 import { Map } from '../components/Map';
 // import { Details } from '../components/Details';
 import Header from '../components/Header';
@@ -49,7 +49,7 @@ console.log(eventId);
                     <div className='left'>
                     <div className='guest-list'>
                   <h2>Guest List</h2>
-                       {/* <ParticpantList /> */}
+                       <ParticipantList guests= {event.confirmedRsvps} />
                 {/* 
                 {state.guests.length ? (
                     <div>

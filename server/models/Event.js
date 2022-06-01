@@ -42,7 +42,7 @@ const eventSchema = new Schema(
                 ref: "User"
             }
         ],
-        guestsRsvp: [
+        confirmedRsvps: [
             {
                 type: Schema.Types.ObjectId,
                 ref: "Rsvp"
