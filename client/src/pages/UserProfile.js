@@ -7,7 +7,7 @@ import { QUERY_USERS } from '../utils/queries';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Carousel from '../components/Carousel';
-import UserEventList from '../components/MeEventList';
+import UserEventList from '../components/UserEventList';
 
 const UserProfile = () => {
 
