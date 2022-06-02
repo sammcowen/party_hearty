@@ -62,10 +62,10 @@ console.log(eventId);
                     <div className='right'>
                         <div className='container justify-between'>
                         <div className="detail-box">
-                            <div>Event hosted by: <span> {event.host} </span> </div>
-                            <div>Event hosted on: <span> {eventDate(parseInt(event.date))} </span>  </div>
-                            <div>Event hosted at: <span>{event.location}</span> </div>
-                            <div>Event fee: $<span>{event.fee}</span></div>
+                            <div>Event hosted by: <span className='bold underline'> {event.host} </span> </div>
+                            <div>Event hosted on: <span className='bold underline'> {eventDate(parseInt(event.date))} </span>  </div>
+                            <div>Event hosted at: <span className='bold underline'>{event.location}</span> </div>
+                            <div>Event fee: <span className='bold underline'>${event.fee}</span></div>
                         </div>
                             <Map className='map' location={event.location}/>
                             <br/>
@@ -76,7 +76,7 @@ console.log(eventId);
                         <br/>
                         <div>
                             <div className='description fix'>
-                               <p> Description {event.description} </p>
+                               <p> Description: <span className='bold'>{event.description}</span> </p>
                             </div>
                         </div>      
                     </div>

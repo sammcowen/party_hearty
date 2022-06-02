@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './style.css';
 
 function UserEventList({ events }) {
 
@@ -21,7 +22,7 @@ function UserEventList({ events }) {
                                     EventName : {event.name} <br />
                                     Location : {event.location} <br />
                                     Date : {eventDate(parseInt(event.date))}<br />
-                                    <ul>
+                                    <ul className='link'>
                                         <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
                                     </ul>
                                 </div>

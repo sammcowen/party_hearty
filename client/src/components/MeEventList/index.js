@@ -3,6 +3,7 @@ import React from 'react';
 import { useMutation } from '@apollo/client'
 import { Link } from 'react-router-dom';
 import { DELETE_EVENT } from '../../utils/mutations'
+import './style.css';
 
 function MeEventList({ events }) {
 
@@ -45,8 +46,8 @@ function MeEventList({ events }) {
                                 Location : {event.location} <br />
                                 Date : {eventDate(parseInt(event.date))}<br />
                                 <ul>
-                                    <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
-                                    <li> <Link to={`/event/update/${event._id}`}> Update Event </Link> </li>
+                                    <li> <Link className='link' to={`/event/${event._id}`} >Vist Event Page</Link> </li>
+                                    <li> <Link className='link' to={`/event/update/${event._id}`}> Update Event </Link> </li>
                                     <button type='submit' className={event._id} onClick={() => handleDeleteEvent(event._id)}> Delete Event </button>
                                 </ul>
                             </div>

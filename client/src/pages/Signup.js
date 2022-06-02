@@ -37,13 +37,16 @@ function Signup(props) {
   return (
     <>
       <Header/>
-       <div className="container my-1">
+    <div className="my-1 justify-center">
+      <div className =''>
+        
+      <div className='center'>
+        <h2>Signup</h2>
+      </div>
       
-
-      <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="">
-          <label htmlFor="firstName">First Name:</label>
+        <div className="padding">
+          <label className="padding-rightSM" htmlFor="firstName">First Name:</label>
           <input
             placeholder="First"
             name="firstName"
@@ -52,8 +55,8 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="">
-          <label htmlFor="lastName">Last Name:</label>
+        <div className="padding">
+          <label className="padding-rightSM" htmlFor="lastName">Last Name:</label>
           <input
             placeholder="Last"
             name="lastName"
@@ -62,8 +65,8 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="">
-          <label htmlFor="username">Username:</label>
+        <div className="padding">
+          <label className="padding-rightSM" htmlFor="username">Username:</label>
           <input
             placeholder="Username"
             name="username"
@@ -72,18 +75,18 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="">
-          <label htmlFor="email">Email:</label>
+        <div className="padding">
+          <label className="padding-rightSM" htmlFor="email">Email:</label>
           <input
-            placeholder="youremail@test.com"
+            placeholder="Email"
             name="email"
             type="email"
             id="email"
             onChange={handleChange}
           />
         </div>
-        <div className="">
-          <label htmlFor="pwd">Password:</label>
+        <div className="padding">
+          <label className="padding-rightSM" htmlFor="pwd">Password:</label>
           <input
             placeholder="******"
             name="password"
@@ -92,11 +95,13 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="">
-          <button 
+        <div className="padding">
+          <button className='onclick' 
           type="submit">Submit</button>
         </div>
       </form>
+      </div>
+
     </div>
     <Footer/>
     </>
