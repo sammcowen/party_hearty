@@ -29,9 +29,10 @@ An application that allows users to plan social events with ease!
   For more information please visit the [license description](https://choosealicense.com/licenses/mit/).
 
   ## Description ℹ
-  Party_Hearty is an application that allows users to signup and create events that they can post on their profile page.  They can create an event with details ,         charge fees, and   invite their followers.Users can create , update and delete events on their page.  Followers can rsvp on the web application as well . 
+  Party_Hearty is an application that allows users to signup and create events that they can post on their profile page.  They can create an event with details , and a pinpoint location of the event on a map.They can charge fees, and invite their guests. Users can create , update and delete events on their page.  Guests can rsvp on the web application as well . 
   
-  This application was built with MongodDB, Express.js, React ,  Node and GarphQL. The application also utilizes Material UI and React Bootstrap for styling on the front end. 
+  
+  This application was built with MongodDB, Express.js, React ,  Node and GraphQL Leaflet, Geosearch, React Bootstrap and Material UI. The application also utilizes Material UI and React Bootstrap for styling on the front end. 
   
   ## Demo 📽
  
