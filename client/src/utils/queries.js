@@ -15,6 +15,13 @@ export const QUERY_USERS = gql `
                 fee
                 date
                 location
+                host
+                confirmedRsvps {
+                    attending
+                    invitedUserId
+                    eventId
+                    username
+                }
 
             }
         }
@@ -64,7 +71,13 @@ export const QUERY_ALL_USERS = gql `
                 fee
                 date
                 location
-                
+                host
+                confirmedRsvps {
+                    attending
+                    invitedUserId
+                    eventId
+                    username
+                }
             }
         }
     }
@@ -118,6 +131,13 @@ export const QUERY_EVENTS = gql `
             fee
             date
             location
+            host
+            confirmedRsvps {
+                attending
+                invitedUserId
+                eventId
+                username
+            }
 
         }
     }
@@ -146,6 +166,13 @@ export const QUERY_EVENT = gql `
             fee
             date
             location
+            host
+            confirmedRsvps {
+                attending
+                invitedUserId
+                eventId
+                username
+            }
          
         }
     }
@@ -180,11 +207,18 @@ export const QUERY_ME = gql `
                 fee
                 date
                 location
+                confirmedRsvps {
+                    attending
+                    invitedUserId
+                    eventId
+                    username
+                }
             }
             invitesRecieved {
                 attending
                 invitedUserId
                 eventId
+                username
             }
         }
     }

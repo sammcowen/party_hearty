@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery, useMutation } from '@apollo/client';
 
-import Badge from '@mui/material/Badge';
-import MailIcon from '@mui/icons-material/Mail';
-import ListItem from '@mui/material/ListItem';
-import List from '@mui/material/List';
-import ListItemText from '@mui/material/ListItemText';
 import Switch from '@mui/material/Switch';
 
 import { QUERY_ALL_EVENTS } from '../../utils/queries';
@@ -42,7 +36,8 @@ function InviteList(props) {
     const handleChange = () => {
         setConfirmOn(!confirmOn);
     }
-    console.log(confirmOn);
+    // console.log(confirmOn);
+    // console.log(allInvitesRecieved);
 
     return (
         <>

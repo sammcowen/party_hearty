@@ -4,6 +4,10 @@ const rsvpSchema = require('./Rsvp');
 
 const eventSchema = new Schema(
     {
+        host: {
+            type: String, 
+            trim: true,
+        },
         name: {
             type: String, 
             required: 'You must name this event',
@@ -38,7 +42,7 @@ const eventSchema = new Schema(
                 ref: "User"
             }
         ],
-        guestsRsvp: [
+        confirmedRsvps: [
             {
                 type: Schema.Types.ObjectId,
                 ref: "Rsvp"
