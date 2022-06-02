@@ -35,7 +35,7 @@ function InviteList(props) {
         }
     })
 
-    
+
     // console.log(allInvitesRecieved);
     // console.log(events)
     // console.log(invitedEvents)
@@ -73,6 +73,7 @@ function InviteList(props) {
                                                     }
                                                 });
                                                 console.log(eventData);
+                                                return eventData;
                                             }}/>
                                         </ListItem>
                                     )
