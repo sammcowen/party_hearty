@@ -34,38 +34,44 @@ function Login(props) {
   return (
    <>
    <Header/>
-    <div className="container my-1">
-      <h2>Login</h2>
+    <div className="my-1 justify-center">
+      <div>
+
+      <div cassName="center">
+        <h2>Login</h2>
+      </div>
+
       <form onSubmit={handleFormSubmit}>
-  <div className="">
-    <label htmlFor="email">Email address:</label>
-    <input
-      placeholder="youremail@test.com"
-      name="email"
-      type="email"
-      id="email"
-      onChange={handleChange}
-    />
-  </div>
-  <div className="">
-    <label htmlFor="pwd">Password:</label>
-    <input
-      placeholder="******"
-      name="password"
-      type="password"
-      id="pwd"
-      onChange={handleChange}
-    />
-  </div>
-  {error ? (
-    <div>
-      <p className="error-text">The provided credentials are incorrect</p>
-    </div>
-  ) : null}
-  <div className="">
-    <button type="submit">Submit</button>
-  </div>
-</form>
+        <div className="padding">
+          <label className='padding-rightSM' htmlFor="email">Email:</label>
+          <input
+            placeholder="Email"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="padding">
+          <label className='padding-rightSM' htmlFor="pwd">Password:</label>
+          <input
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
+        </div>
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
+        <div className="padding">
+          <button className='onclick' type="submit">Submit</button>
+        </div>
+      </form>
+      </div>
     </div>
     <Footer/>
    </>

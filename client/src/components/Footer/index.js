@@ -8,7 +8,7 @@ function Footer () {
     return (
         <div>
             <div className="sticky-bottom footer">
-                <Link to='/contributors/team'> Meet the Team </Link>
+                <Link style={{textDecoration: "none", color: "black"}} to='/contributors/team'> Meet the Team </Link>
             </div>
         </div>
     );
