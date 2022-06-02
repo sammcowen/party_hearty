@@ -4,61 +4,74 @@ import Ulises from '../../assets/meetulises.jpg';
 import Michael from '../../assets/meetmichael.png';
 import Jim from '../../assets/meetjim.jpg';
 function MeetTeamComp() {
-    return (
-        <div>
-        <div className="text">
+  return (
+    <div>
+      <div className="text">
         <h1>Meet The Team </h1>
+     
+
+      <div class="card mb-3 teamcard">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src={Michael} class="img-fluid rounded-start" alt="..." />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Meet Michael</h5>
+              <p class="card-text">He is passionate about social organizing and social justice. Michael also loves music, making music, gaming, and animals.</p>
+              <p class="card-text"><small class="text-muted">UC Berkeley Full Stack Web Dev Grad</small></p>
+            </div>
+          </div>
         </div>
-        
-        <div id="carouselExampleCaptions" class="carousel  text" data-bs-ride="false">
-  <div className="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active rando" aria-current="true" aria-label="Slide 1"></button>
-    <button className="rando" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button className="rando" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button className ="rando"type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-  </div>
-  <div className="carousel-inner">
-    <div className="carousel-item active">
-      <img src={Michael} className="d-block w-100" alt="..."/>
-      <div className="carousel-caption d-none d-md-block">
-        <h5>Michael Cortez Mejia</h5>
-        <p>UC Berkeley Full Stack Web Dev Grad</p>
+        <div class="card mb-3 teamcard">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src={Samm} class="img-fluid rounded-start" alt="..." />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Meet Samm </h5>
+                <p class="card-text">In addition to taking care of her family, Samantha loves to workout, learn new life hacks, and enjoys all kinds of food and movies!!</p>
+                <p class="card-text"><small class="text-muted">UC Berkeley Full Stack Web Dev Grad</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 teamcard" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src={Jim} class="img-fluid rounded-start" alt="..." />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Meet Jim</h5>
+                  <p class="card-text">Jim is a CSS wizard ! When he's not working magic with his code , he loves learning random fun facts ,playing video games and cooking delicious food</p>
+                  <p class="card-text"><small class="text-muted">UC Berkeley Full Stack Web Dev Grad</small></p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3 teamcard">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src={Ulises} class="img-fluid rounded-start" alt="..." />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Meet Ulises </h5>
+                    <p class="card-text">Ulises is a natural problem solver.In his free time , Ulises likes to play video games . He also is a huge fan of anime and FOOD!</p>
+                    <p class="card-text"><small class="text-muted">UC Berkeley Full Stack Web Dev Grad</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div className="carousel-item">
-      <img src={Samm} className="d-block w-100" alt="..."/>
-      <div className="carousel-caption d-none d-md-block">
-        <h5>Samantha Cowen</h5>
-        <p>UC Berkeley Full Stack Web Dev Grad</p>
-      </div>
     </div>
-    <div className="carousel-item">
-      <img src={Jim} className="d-block w-100" alt="..."/>
-      <div className="carousel-caption d-none d-md-block">
-        <h5>Jim Nguyen</h5>
-        <p>UC Berkeley Full Stack Web Dev Grad</p>
-      </div>
-    </div>
-    <div className="carousel-item">
-      <img src={Ulises} className="d-block w-100" alt="..."/>
-      <div className="carousel-caption d-none d-md-block">
-        <h5>Ulises Rosas</h5>
-        <p>UC Berkeley Full Stack Web Dev Grad</p>
-      </div>
-    </div>
-  </div>
-  <button className="carousel-control-prev " type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next " type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-  </div>
-  </div>
-  
-    );
+
+
+
+  );
 };
 
 export default MeetTeamComp;

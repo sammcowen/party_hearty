@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './style.css';
 
 function UserEventList({ events }) {
 
@@ -21,9 +22,9 @@ function UserEventList({ events }) {
                                     EventName : {event.name} <br />
                                     Location : {event.location} <br />
                                     Date : {eventDate(parseInt(event.date))}<br />
-                                    <ul>
-                                        <li> <Link to={`/event/${event._id}`} >Vist Event Page</Link> </li>
-                                    </ul>
+                                    <div>
+                                        <button style={{backgroundColor: "#b026ff"}}> <Link to={`/event/${event._id}`} style={{textDecoration: "none", color: "black"}} >Vist Event Page</Link> </button>
+                                    </div>
                                 </div>
                             </form>
                     ))}

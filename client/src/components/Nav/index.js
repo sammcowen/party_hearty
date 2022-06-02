@@ -1,12 +1,9 @@
-// side nav
-// home button 
-// profile button
-// if modal for login/signUp logOut need button
-// add event
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from "../../utils/auth";
 import UsernameSearch from '../UsernameSearch';
+import './style.css'
 // import Login from '../Login';
 // import Signup from '../SignUp';
 
@@ -17,7 +14,7 @@ function Nav () {
       return(
         <ul className="flex-row">
           <li className="">
-                <Link to="/">
+                <Link className='' to="/">
                   Home
                 </Link>
           </li>
@@ -32,7 +29,7 @@ function Nav () {
       return(
         <ul className="flex-row">
               <li className="">
-                <Link to="/">
+                <Link className='' to="/">
                   Home
                 </Link>
               </li>
@@ -40,12 +37,12 @@ function Nav () {
                 <UsernameSearch />
           </li>
               <li className="">
-                <Link to="/signup">
+                <Link className='' to="/signup">
                   Signup
                 </Link>
               </li>
               <li className="">
-                <Link to="/login">
+                <Link className='' to="/login">
                   Login
                 </Link>
               </li>
@@ -61,7 +58,7 @@ function Nav () {
 
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
+              <h5 className="offcanvas-title black" id="offcanvasRightLabel">Menu</h5>
               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div className="offcanvas-body">
