@@ -76,7 +76,7 @@ function InviteList(props) {
             )}
             <div className="invites">
 
-                <Badge sx={{marginTop: 2}} badgeContent={invitedEvents.length} color="primary">
+                <Badge sx={{marginTop: 2}} badgeContent={allInvitesRecieved.length} color="primary">
                     <MailIcon onClick={handleClick} color='secondary'/>
                 </Badge>
             </div>
