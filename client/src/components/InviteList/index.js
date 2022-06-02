@@ -34,6 +34,8 @@ function InviteList(props) {
             return allInvitesRecieved[i].eventId === event._id
         }
     })
+
+    
     // console.log(allInvitesRecieved);
     // console.log(events)
     // console.log(invitedEvents)
