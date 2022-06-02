@@ -94,6 +94,18 @@ export const QUERY_ALL_USERS = gql `
 //         username
 //     }
 // }
+export const QUERY_ALL_EVENTS = gql `
+    query getAllEvents {
+        events {
+        _id
+        name
+        date
+        fee
+        location
+        description
+        }
+    }
+`;
 
 
 

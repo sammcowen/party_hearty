@@ -114,3 +114,11 @@ export const SEND_RSVP = gql`
     }
   }
 `;
+
+export const CONFIRM_RSVP = gql`
+  mutation confirmRsvp($attending: Boolean!, $eventId: String) {
+    confirmRsvp(attending: $attending, eventId: $eventId) {
+      _id
+    }
+  }
+`;
