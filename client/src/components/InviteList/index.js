@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useLazyQuery, useMutation } from '@apollo/client';
 
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
+import ListItemText from '@mui/material/ListItemText';
 import Switch from '@mui/material/Switch';
 
 import { QUERY_ALL_EVENTS } from '../../utils/queries';
@@ -53,7 +58,9 @@ function InviteList(props) {
                                  ) : invitedEvents.map((invitedEvent, i) => {
                                     return (
                                         <ListItem key={invitedEvent._id + i}>
-                                            <ListItemText className='invited' primary={`${invitedEvent.name}`} secondary={`${invitedEvent.description}`}/>
+                                            <ListItemText onClick={() =>{
+                                                window.location.assign(`/event/${invitedEvent._id}`)
+                                            }} className='invited' primary={`${invitedEvent.name}`} secondary={`${invitedEvent.description}`}/>
                                             <span className='invited'>RSVP</span>
                                             <Switch onChange={()=> {
                                                 handleChange();
@@ -72,7 +79,7 @@ function InviteList(props) {
             )}
             <div className="invites">
 
-                <Badge sx={{marginTop: 2}} badgeContent={invitedEvents.length} color="primary">
+                <Badge sx={{marginTop: 2}} badgeContent={allInvitesRecieved.length} color="primary">
                     <MailIcon onClick={handleClick} color='secondary'/>
                 </Badge>
             </div>
