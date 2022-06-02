@@ -43,6 +43,8 @@ function InviteList(props) {
     }
     console.log(confirmOn);
 
+
+
     return (
         <>
             {cardOpen && (
@@ -57,7 +59,9 @@ function InviteList(props) {
                                  ) : invitedEvents.map((invitedEvent, i) => {
                                     return (
                                         <ListItem key={invitedEvent._id + i}>
-                                            <ListItemText className='invited' primary={`${invitedEvent.name}`} secondary={`${invitedEvent.description}`}/>
+                                            <ListItemText onClick={() =>{
+                                                window.location.assign(`/event/${invitedEvent._id}`)
+                                            }} className='invited' primary={`${invitedEvent.name}`} secondary={`${invitedEvent.description}`}/>
                                             <span className='invited'>RSVP</span>
                                             <Switch onChange={()=> {
                                                 handleChange();
