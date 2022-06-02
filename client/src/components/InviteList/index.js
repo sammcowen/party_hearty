@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery, useMutation } from '@apollo/client';
 
 import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
