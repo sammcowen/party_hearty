@@ -1,5 +1,5 @@
 # party_hearty 🎉💃🏽🥳🕺🏽
-An application that allows users to plan social events with ease!
+A Full-Stack React application that allows users to plan social events with ease!
 
 
  ![badge](https://img.shields.io/badge/license-MITLicense-brightorange)
