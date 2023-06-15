@@ -28,6 +28,9 @@
     "react-scripts": "^5.0.1",
     "styled-components": "^5.3.5"
   },
+  "engines": {
+    "node": "18.16"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
