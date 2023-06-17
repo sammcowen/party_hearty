@@ -27,13 +27,13 @@ function EventUpdateForm() {
 
 
     // const [eventInfo, seteventInfo] = useState({ name: `${event.name}`, description: `${event.description}`, date: `${eventDate(parseInt(event.date))}`, location: `${event.location}`, fee: `${event.fee}` });
-    // const [eventInfo, setEventInfo] = useState({ name: ``, description: ``, date: ``, location: ``, fee: `` });
+    const [eventInfo, setEventInfo] = useState({ name: ``, description: ``, date: ``, location: ``, fee: `` });
    
     // const handleChange = (event) => {
     //     setEventInfo({...eventInfo, [event.target.name]: event.target.value});
     // }
-    // const newFee = parseInt(eventInfo.fee);
-    // console.log(newFee);
+    const newFee = parseInt(eventInfo.fee);
+    console.log(newFee);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
