@@ -30,7 +30,8 @@
     "styled-components": "^5.3.5"
   },
   "engines": {
-    "node": "18.1"
+    "node": "18.1",
+    "npm": "9.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,5 +46,8 @@
     ">0.2%",
     "not dead",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.1.3"
+  }
 }
