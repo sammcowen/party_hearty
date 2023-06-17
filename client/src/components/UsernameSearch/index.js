@@ -24,7 +24,7 @@ function UsernameSearch() {
                     variables: { username: searchUsername.name }
                 })
                 // conditionally renders if the user data is valid
-                if (userResult.data.user != undefined) {
+                if (userResult.data.user !== undefined) {
                     window.location.assign(`/username/${searchUsername.name}`);
                 } else {
                     // takes to a bad request page if username is not valid
