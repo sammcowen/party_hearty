@@ -7,7 +7,7 @@ import { QUERY_ME } from '../utils/queries';
 import Footer from '../components/Footer';
 import MeEventList from '../components/MeEventList';
 import Header from '../components/Header';
-import InviteList from '../components/InviteList';
+// import InviteList from '../components/InviteList';
 
 
 const HomePageUser = () => {
@@ -32,9 +32,9 @@ const HomePageUser = () => {
             <div className='homestep fix'>
                 <h2>Your upcoming events..</h2>
                 <a href={'/EventFormPage'}><button className="rando">Create New Event!</button></a>
-                 <InviteList 
+                 {/* <InviteList 
                     allInvitesRecieved={me.invitesRecieved}
-                /> 
+                />  */}
               <MeEventList
                     events={me.events}            
                 /> 
